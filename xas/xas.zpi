@@ -1,0 +1,114 @@
+<!-- Project file for the Zeus for Windows IDE - http://www.zeusedit.com -->
+<Project name="xas" sorted="Yes" autosynch="Yes" filename="xas.csproj" st_mtime="1326336628">
+    <SccEnable>On</SccEnable>
+    <SccComment></SccComment>
+    <SccProject></SccProject>
+    <SccAuxPath></SccAuxPath>
+    <SccLocalPath></SccLocalPath>
+    <TagEnable>On</TagEnable>
+    <TagNone>Off</TagNone>
+    <TagBuildNone>Off</TagBuildNone>
+    <TagBuildOnOpen>On</TagBuildOnOpen>
+    <TagBuildOnSave>On</TagBuildOnSave>
+    <TagNoIntellisense>Off</TagNoIntellisense>
+    <TagWorkspace>On</TagWorkspace>
+    <TagOutputDir>$zudzTags</TagOutputDir>
+    <TagInterval>20</TagInterval>
+    <TagBuildTimed></TagBuildTimed>
+    <Tags />
+    <Server></Server>
+    <UserID></UserID>
+    <Password></Password>
+    <LocalDir></LocalDir>
+    <RemoteDir></RemoteDir>
+    <Classes>Classes</Classes>
+    <Enumerations>Enumerations</Enumerations>
+    <Files>Project Files</Files>
+    <Functions>Functions</Functions>
+    <Imports>Imports</Imports>
+    <Interfaces>Interfaces</Interfaces>
+    <Macros>Macros</Macros>
+    <Packages>Packages</Packages>
+    <Prototypes>Prototypes</Prototypes>
+    <References>References</References>
+    <Structures>Structures</Structures>
+    <Typedefs>Typedefs</Typedefs>
+    <Variables>Variables</Variables>
+    <MakeFile>xas.csproj</MakeFile>
+    <SearchPath></SearchPath>
+    <RegexFile></RegexFile>
+    <RegexLine></RegexLine>
+    <RegexInfo></RegexInfo>
+    <RegexError></RegexError>
+    <RegexWarning></RegexWarning>
+    <EnvLib></EnvLib>
+    <EnvPath>$MsBuildPath</EnvPath>
+    <EnvInclude></EnvInclude>
+    <EnvClassPath></EnvClassPath>
+    <DoxygenAsJava>On</DoxygenAsJava>
+    <DebugCaptureStdOut>Off</DebugCaptureStdOut>
+    <DebugCaptureStdErr>Off</DebugCaptureStdErr>
+    <DebugExecutable>$pb.exe</DebugExecutable>
+    <DebugArguments></DebugArguments>
+    <DebugDirectory>$pddDebug\</DebugDirectory>
+    <DebugDebugger></DebugDebugger>
+    <ReleaseCaptureStdOut>Off</ReleaseCaptureStdOut>
+    <ReleaseCaptureStdErr>Off</ReleaseCaptureStdErr>
+    <ReleaseExecutable>$pb.exe</ReleaseExecutable>
+    <ReleaseArguments></ReleaseArguments>
+    <ReleaseDirectory>$pddRelease\</ReleaseDirectory>
+    <ReleaseDebugger></ReleaseDebugger>
+    <DebugMake>MsBuild.exe $PDD$PF /t:Build /p:Configuration=Debug /v:n</DebugMake>
+    <DebugClean>MsBuild.exe $PDD$PF /t:Clean /p:Configuration=Debug /v:n</DebugClean>
+    <DebugCompile>MsBuild.exe $PDD$PF /p:SelectedFiles=&quot;$FR&quot; /t:Compile /p:Configuration=Debug /v:n</DebugCompile>
+    <DebugRebuild>MsBuild.exe $PDD$PF /t:Rebuild /p:Configuration=Debug /v:n</DebugRebuild>
+    <DebugProjectOutput>Warnings</DebugProjectOutput>
+    <DebugCompilerOutput>Warnings</DebugCompilerOutput>
+    <DebugCompilerStdOut>On</DebugCompilerStdOut>
+    <DebugCompilerStdErr>On</DebugCompilerStdErr>
+    <DebugCompilerSaveAll>Off</DebugCompilerSaveAll>
+    <DebugCompilerReload>Off</DebugCompilerReload>
+    <DebugProjectStdOut>On</DebugProjectStdOut>
+    <DebugProjectStdErr>On</DebugProjectStdErr>
+    <DebugProjectSaveAll>On</DebugProjectSaveAll>
+    <DebugProjectReload>Off</DebugProjectReload>
+    <ReleaseMake>MsBuild.exe $PDD$PF /t:Build /p:Configuration=Release /v:n</ReleaseMake>
+    <ReleaseClean>MsBuild.exe $PDD$PF /t:Clean /p:Configuration=Release /v:n</ReleaseClean>
+    <ReleaseCompile>MsBuild.exe $PDD$PF /p:SelectedFiles=&quot;$FR&quot; /t:Compile /p:Configuration=Release /v:n</ReleaseCompile>
+    <ReleaseRebuild>MsBuild.exe $PDD$PF /t:Rebuild /p:Configuration=Release /v:n</ReleaseRebuild>
+    <ReleaseProjectOutput>Warnings</ReleaseProjectOutput>
+    <ReleaseCompilerOutput>Warnings</ReleaseCompilerOutput>
+    <ReleaseCompilerStdOut>On</ReleaseCompilerStdOut>
+    <ReleaseCompilerStdErr>On</ReleaseCompilerStdErr>
+    <ReleaseCompilerSaveAll>Off</ReleaseCompilerSaveAll>
+    <ReleaseCompilerReload>Off</ReleaseCompilerReload>
+    <ReleaseProjectStdOut>On</ReleaseProjectStdOut>
+    <ReleaseProjectStdErr>On</ReleaseProjectStdErr>
+    <ReleaseProjectSaveAll>On</ReleaseProjectSaveAll>
+    <ReleaseProjectReload>Off</ReleaseProjectReload>
+    <File>AS3_old.g</File>
+    <File>CodeGenerator.cs</File>
+    <File>cpp.stg</File>
+    <File>cpp2.stg</File>
+    <File>CppCodeGenerator.cs</File>
+    <File>ErrorListener.cs</File>
+    <File>ICodeGenerator.cs</File>
+    <File>KeywordMapping.cs</File>
+    <File>LinkedListToken.cs</File>
+    <File>LinkedListTree.cs</File>
+    <File>Metadata.cs</File>
+    <File>Options.cs</File>
+    <File>Parser.cs</File>
+    <File>Parser2.cs</File>
+    <File>Parser3.cs</File>
+    <File>ParserDebug.cs</File>
+    <File>Program.cs</File>
+    <File>Symbol.cs</File>
+    <File>SymbolTable.cs</File>
+    <File>TreeTokenListUpdateDelegate.cs</File>
+    <File>TypeMapping.cs</File>
+    <Folder name="Properties" sorted="Yes">
+        <File>Properties\app.manifest</File>
+        <File>Properties\AssemblyInfo.cs</File>
+    </Folder>
+</Project>

@@ -1,0 +1,7 @@
+[paths]
+default = https://hg01.codeplex.com/xas
+
+
+[tortoisehg]
+authorcolor = True
+longsummary = True

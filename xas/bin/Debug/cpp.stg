@@ -1,0 +1,154 @@
+﻿/*
+ *  Template group file for the CPP code generator.
+ *
+ *  Written by Jeff Bakst <jeff.bakst(at)gmail.com>
+ *
+ *  This file is part of XAS and subject to the same license as XAS itself.
+ */
+group cpp;
+
+cppInitMap ::= [
+	"int":"0",
+	"long":"0",
+	"float":"0.0",
+	"double":"0.0",
+	"bool":"false",
+	"byte":"0",
+	"short":"0",
+	"char":"0",
+	default:"0" // anything other than an atomic type
+]
+
+typeMap ::= [
+  "String":"char*",
+  "Integer":"int",
+  "int":"int",
+  "uint":"unsigned int",
+  "Number":"double",
+  "void":"void",
+  "Boolean":"bool",
+  default:key
+]
+
+file(defs) ::= <<
+<defs; separator="\n">
+>>
+
+file1(x,defs) ::= <<
+// <x>
+<defs; separator="\n">
+>>
+
+class(name, sup, members) ::= <<
+class <name> <if(sup)>: <sup><endif> {
+	<members>
+};
+>>
+
+call(name, args) ::= <<
+<name>(<args>; separator=", ">)
+>>
+
+expr(e,r,c) ::= <<
+<if(r)><e> <r> <typeMap.(c)><else><e><endif>
+>>
+
+method(class, name, ret, args, block, accessor) ::= <<
+<ret> <class>::<if(accessor)><accessor>_<endif><<name><args> <block>
+>>
+
+block(stats) ::= <<
+{
+	<stats; separator="\n">
+}
+>>
+
+interfaces(i) ::= <<
+<i>
+>>
+
+if(cond, stat1, stat2) ::= <<
+if ( <cond> ) <stat1>
+<if(stat2)>else <stat2><endif>
+>>
+
+callstat(name, args) ::= <<
+<call(...)>;
+>>
+
+notsupported(x) ::= <<
+null; // <x>
+>>
+
+decl(name, type, init, ptr) ::= <<
+	<type> <if(ptr)>*<endif><name><if(init)> = <init><endif>
+>>
+
+decl2(name) ::= <<
+<name>
+>>
+
+arg(name, type, init, ptr) ::= "<decl(...)>"
+
+var(name, type, init, ptr) ::= <<
+<type> <name><if(init)>=<init><endif>
+>>
+
+paramdecl(name, type, init) ::= <<
+<type> <<name><if(init)> = <init><endif>
+>>
+
+param(name, type) ::= <<
+<type> <name>
+>>
+
+indirect(name) ::= <<
+<if(name)>-><name><endif>
+>>
+
+type(typeName) ::= <<
+<typeMap.(typeName)>
+>>
+
+ignore() ::= <<
+>> 
+
+assign(rhs) ::= <<
+<rhs>
+>>
+
+include(name) ::= <<
+#include "<name>";
+>>
+
+namespace(name) ::= <<
+namespace <name> {
+>>
+
+notsupported(s) ::= <<
+// not supported <s>
+>>
+
+setter() ::= <<
+set_
+>>
+
+getter() ::= <<
+get_
+>>
+
+cast() ::= <<
+dynamic_cast
+>>
+
+rtti() ::= <<
+typeid
+>>
+
+comment(s) ::= <<
+// <s>
+>>
+
+path(p) ::= <<
+/<p>
+>>

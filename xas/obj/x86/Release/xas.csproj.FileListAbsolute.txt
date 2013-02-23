@@ -1,0 +1,17 @@
+C:\Library\hg\xas\xas\bin\Release\xas.exe
+C:\Library\hg\xas\xas\bin\Release\xas.pdb
+C:\Library\hg\xas\xas\bin\Release\Antlr3.Runtime.dll
+C:\Library\hg\xas\xas\bin\Release\CommandLine.dll
+C:\Library\hg\xas\xas\bin\Release\Antlr3.Runtime.pdb
+C:\Library\hg\xas\xas\bin\Release\CommandLine.pdb
+C:\Library\hg\xas\xas\bin\Release\CommandLine.xml
+C:\Library\hg\xas\xas\obj\x86\Release\xas.csprojResolveAssemblyReference.cache
+C:\Library\hg\xas\xas\obj\x86\Release\AS3Parser.cs
+C:\Library\hg\xas\xas\obj\x86\Release\AS3Lexer.cs
+C:\Library\hg\xas\xas\obj\x86\Release\xas.csproj.AntlrGeneratedCodeFileListAbsolute.txt
+C:\Library\hg\xas\xas\obj\x86\Release\xas.exe
+C:\Library\hg\xas\xas\obj\x86\Release\xas.pdb
+C:\Library\hg\xas\xas\bin\Release\Antlr3.StringTemplate.dll
+C:\Library\hg\xas\xas\bin\Release\Antlr3.StringTemplate.pdb
+C:\Library\hg\xas\xas\obj\x86\Release\AS3TParser.cs
+C:\Library\hg\xas\xas\obj\x86\Release\AS3TLexer.cs

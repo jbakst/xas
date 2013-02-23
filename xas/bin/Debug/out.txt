@@ -1,0 +1,611 @@
+// package com/rim/ota/sls {
+	#include "com/rim/ota/sls/activation/ActivationRequest";
+	#include "com/rim/ota/sls/activation/ActivationResponse";
+	#include "com/rim/ota/sls/bundle/AvailableBundlesRequest";
+	#include "com/rim/ota/sls/bundle/AvailableBundlesResponse";
+	#include "com/rim/ota/sls/bundle/BundleUpgradeRequest";
+	#include "com/rim/ota/sls/bundle/BundleVersionRequest";
+	#include "com/rim/ota/sls/bundle/BundleVersionResponse";
+	#include "com/rim/ota/sls/config/ConfigResponse";
+	#include "com/rim/ota/sls/details/UpdateDetailRequest";
+	#include "com/rim/ota/sls/details/UpdateDetailResponse";
+	#include "com/rim/ota/sls/messages/DownloadControlResponse";
+	#include "com/rim/ota/sls/document/AcceptanceRequest";
+	#include "com/rim/ota/sls/document/AcceptanceResponse";
+	#include "com/rim/ota/sls/document/DocumentFetchRequest";
+	#include "com/rim/ota/sls/document/DocumentFetchResponse";
+	#include "com/rim/ota/sls/events/SLSResponseEvent";
+	#include "com/rim/ota/sls/events/SLSResultEvent";
+	#include "com/rim/ota/sls/messages/DownloadControlRequest";
+	#include "com/rim/ota/sls/packages/AvailablePackagesRequest";
+	#include "com/rim/ota/sls/packages/AvailablePackagesResponse";
+	#include "com/rim/ota/sls/packages/Package";
+	#include "com/rim/ota/sls/ping/PingRequest";
+	#include "com/rim/ota/sls/ping/PingResponse";
+	#include "com/rim/ota/sls/profile/ClientProperties";
+	#include "com/rim/ota/sls/profile/DeviceIdentifier";
+	#include "com/rim/ota/sls/status/StatusRequest";
+	#include "com/rim/ota/sls/status/StatusResponse";
+	#include "com/rim/ota/sls/summary/UpdateSummaryRequest";
+	#include "com/rim/ota/sls/summary/UpdateSummaryResponse";
+	#include "com/rim/ota/sls/transport/HttpUserAgent";
+	#include "com/rim/ota/sls/transport/SLSErrorResponse";
+	#include "com/rim/ota/sls/common/SLSRequest";
+    #include "com/rim/ota/Utils";
+	
+	#include "flash/display/Sprite";
+	#include "flash/events/ErrorEvent";
+	#include "flash/events/Event";
+	#include "flash/events/EventDispatcher";
+	#include "flash/events/MouseEvent";
+	#include "flash/utils/Dictionary";
+	
+	#include "qnx/system/Device";
+	
+	/**
+	 * @private 
+	 */
+	// not supported [Event(name="bundle_version", type="com.rim.ota.sls.events.SLSResultEvent")]
+	/**
+	 * @private 
+	 */
+	// not supported [Event(name="vendor_result", type="com.rim.ota.sls.events.SLSResultEvent")]
+	/**
+	 * @private 
+	 */
+	// not supported [Event(name="notification_subscription", type="com.rim.ota.sls.events.SLSResultEvent")]
+	/**
+	 * @private 
+	 */
+	// not supported [Event(name="bundle_upgrade", type="com.rim.ota.sls.events.SLSResultEvent")]
+	
+	/**
+	 * Software Loading System
+	 * 
+	 * <p>
+	 * This should be instantiated one time and used for each message. 
+	 * </p>
+	 * 
+	 * @example
+	 * 
+	 * <listing version="3.0">
+	 *      private var _slsservice:SlsProtocolService = new SlsProtocolService();
+	 * 
+	 *      // set the server url
+	 *		_slsservice.server = "http://10.3.154.160:8080/sls-cse-2.0.0-SNAPSHOT/updateDetails/1.0.0/";
+	 *				
+	 *		// wire in some event handlers specific to the message
+	 *		_slsservice.addEventListener(SLSResultEvent.UPDATE_DETAILS, onUpdateDetails);
+	 *		_slsservice.addEventListener(SLSResultEvent.SLS_ERROR, onSLSError);
+	 *		_slsservice.addEventListener(ErrorEvent.ERROR, onError);
+	 * </listing>
+	 */
+	//  class SlsProtocolService extends EventDispatcher {
+		//   HttpUserAgent _userAgent=null;
+		
+		//    char* INTERFACE_VERSION="1.0.0";
+
+		 SlsProtocolService::SlsProtocolService() {
+			super();
+			init();
+		}
+		
+		void SlsProtocolService::init() {
+			_userAgent = new HttpUserAgent();
+
+			char* s=dynamic_castchar*(x);
+			addListeners();	
+		}
+		
+		//   char* _url;
+		/**
+		 * The url to use for the request.
+		 * 
+		 * <p>
+		 * The url will typically be obtained from the PingResponse
+		 * </p>  
+		 * 
+		 * @default http://
+		 * 
+		 * @see com.rim.ota.sls.ping.PingResponse
+		 */
+		void SlsProtocolService::set_url(char* value) {
+			_url = value;	
+			
+			if (_userAgent != null && _url != null) {
+				_userAgent->url = _url;
+			}
+		}
+		char* SlsProtocolService::get_url() {
+			return _url;
+		}
+
+		/**
+		 * Used to send the request
+		 * 
+		 * @param request contains the request to send
+		 * 
+		 * @return <code>SLSErrorCodes.ERR_SUCCESS</code> if no errors or 
+		 *  <code>SLSErrorCodes.ERR_LOCAL_UNKNOWN_HTTP_REQUEST_ERROR</code>
+		 * 
+		 * @example
+		 * 
+		 * <listing version="3.0">
+		 *      // create a instance of the service
+		 *      _slsservice = new SlsProtocolService();
+		 * 
+		 *      // set the server url
+		 *		_slsservice.server = "http://10.3.154.160:8080/sls-cse-2.0.0-SNAPSHOT/updateDetails/1.0.0/";
+		 *				
+		 *		// wire in some event handlers
+		 *		_slsservice.addEventListener(SLSResultEvent.UPDATE_DETAILS, onUpdateDetails);
+		 *		_slsservice.addEventListener(SLSResultEvent.SLS_ERROR, onSLSError);
+		 *		_slsservice.addEventListener(ErrorEvent.ERROR, onError);
+		 *				
+		 *		// set the request timeout to 60 seconds
+		 *		_timeOut = setTimeout(onTimeOut, 60000);
+		 *
+		 *		// where the data will come from
+		 *		var td:TestData = new TestData();
+		 *		var values:Dictionary = td.result();
+		 *		
+		 *		// create an instance of the request
+		 *		var request:UpdateDetailRequest = new UpdateDetailRequest();
+		 *
+		 *		// set properties for the request
+		 *		request.scmVersionCurrent = values["scmVersionCurrent"];
+		 *		request.deviceId = values["deviceId"];
+		 *		request.clientProperties = values["clientProperties"];
+		 *		request.allowPatching = values["allowPatching"];
+		 *		request.authEchoTS = values["authEchoTS"]
+		 *		request.campaignId = values["campaignId"];
+		 *		request.sessionId = values["sessionId"];
+		 *		request.patchType = values["patchType"];
+		 *		request.upgradeMode = values["upgradeMode"];
+		 *		request.directiveType = values["directiveType"];
+		 *		request.directiveValue = values["directiveValue"];
+		 *		request.currentSoftware = values["current"];
+		 *		request.selectedSoftware = values["selected"];
+		 *				
+		 *		// send the request
+		 *		_slsservice.send(request);				
+		 * </listing>
+		 * 
+		 * <listing version="3.0"> 
+		 * protected function onUpdateDetails(event:SLSResultEvent):void {
+		 *		clearTimeout(_timeOut);
+		 *		responses.text = event.result.toString();
+		 * 
+		 *		var response:UpdateDetailResponse = event.result as UpdateDetailResponse;
+         *
+		 *		if (response.data.status.code == ServerStatusCodes.SUCCESS) {
+		 * 
+		 *      } 	
+		 *	}
+         *
+		 * </listing>
+		 * 
+		 * @see com.rim.ota.sls.details.UpdateDetailRequest
+		 * @see com.rim.ota.sls.summary.UpdateSummaryRequest
+		 * @see com.rim.ota.sls.ping.PingRequest
+		 * @see com.rim.ota.sls.document.AcceptanceRequest
+		 * @see com.rim.ota.sls.activation.ActivationRequest
+		 * @see com.rim.ota.sls.bundle.AvailableBundlesRequest
+		 * @see com.rim.ota.sls.status.StatusRequest
+		 * @see com.rim.ota.sls.config.ConfigRequest
+		 * @see com.rim.ota.sls.document.DocumentFetchRequest
+		 * @see com.rim.ota.sls.messages.DownloadControlRequest
+		 * 
+		 * @see SlsProtocolService#enableCompression
+		 * @see SlsProtocolService#transport
+		 * 
+		 * @see com.rim.ota.sls.status.ServerStatusCodes
+		 */
+		int SlsProtocolService::send(SLSRequest request) {
+			return _userAgent->sendRequest(request, _url, _compression, _transport);			
+		}
+		
+		//   bool _compression=false;
+		/**
+		 * used to enable or disable message compression.
+		 * 
+		 * @param value <code>true</code> to enable compression for 
+		 * messages or <code>false</code> to disable.
+		 * 
+		 * @default false
+		 * 
+		 */
+		void SlsProtocolService::set_enableCompression(bool value) {
+			_compression = value;	
+			if (null != _userAgent) {
+				_userAgent->compress = value;
+			}
+		}
+		
+		//   char* _transport="WIFI";
+		/**
+		 * Used to tell the network stack to use a specific transport
+		 * 
+		 * @example
+		 * 
+		 * <listing version="3.0">
+		 *  WIFI, 3G, 4G, EDGE
+		 * </listing>
+		 * 
+		 * @param value transport to use.
+		 * 
+		 * @default WIFI
+		 */
+		void SlsProtocolService::set_transport(char* value) {
+			_transport = value;
+		}
+		
+		/**
+		 * 
+		 * @private 
+		 */
+		void SlsProtocolService::addListeners() {
+			_userAgent->addEventListener(SLSResponseEvent->SLS_RESPONSE, onResponse);
+			_userAgent->addEventListener(ErrorEvent->ERROR, onError); 
+		}
+		
+		/**
+		 * 
+		 * @private 
+		 */
+		void SlsProtocolService::removeListeners() {
+			_userAgent->removeEventListener(SLSResponseEvent->SLS_RESPONSE, onResponse);
+			_userAgent->removeEventListener(ErrorEvent->ERROR, onError); 
+		}
+		
+		/**
+		 * 
+		 * @private 
+		 */
+		void SlsProtocolService::renewUserAgent() {
+
+			removeListeners();
+			
+            if (null != _userAgent) {
+                _userAgent->dispose();
+				_userAgent = null;
+            }
+            
+			_userAgent = new HttpUserAgent();
+			if (null != _url) {
+				_userAgent->url = _url;
+			}
+			
+			addListeners()
+		}
+		
+		/**
+		 * 
+		 * @param event
+		 * @private 
+		 */
+		void SlsProtocolService::onResponse(SLSResponseEvent event) {
+            Utils->log("SlsProtocolService::onResponse()", Utils->LOG_LEVEL_D1_INFO);
+			sendResultEvent(dynamic_castSLSResponseEvent(event->clone()));
+		}
+		
+		/**
+		 * 
+		 * @param event
+		 * @private 
+		 */
+		void SlsProtocolService::onError(ErrorEvent event) {
+            Utils->log("SlsProtocolService::onError()", Utils->LOG_LEVEL_D1_INFO);
+			ErrorEvent evt=new ErrorEvent(ErrorEvent->ERROR, false, false, event->text, event->errorID);
+			dispatchEvent(evt);
+		}
+		
+		/**
+		 * 
+		 * @param event
+		 * @private
+		 */
+		void SlsProtocolService::sendResultEvent(SLSResponseEvent event) {
+            Utils->log("SlsProtocolService::sendResultEvent()", Utils->LOG_LEVEL_D1_INFO);
+			if (!(_typeofSLSErrorResponse(event->response))) {
+				SLSResultEvent evt; 
+				
+				if (_typeofUpdateDetailResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->UPDATE_DETAILS);
+				} else if(_typeofStatusResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->STATUS);
+				} else if(_typeofDocumentFetchResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->DOCUMENT_FETCH);	
+				} else if(_typeofActivationResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->ACTIVATION);	
+				} else if (_typeofPingResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->PING);					
+				} else if (_typeofAvailableBundlesResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->AVAILABLE_BUNDLES);
+				} else if (_typeofUpdateSummaryResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->UPDATE_SUMMARY);					
+				} else if (_typeofAcceptanceResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->ACCEPTANCE);					
+				} else if (_typeofConfigResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->CONFIG);					
+				} else if (_typeofDownloadControlResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->DOWNLOAD_CONTROL);					
+				} 
+
+				evt->result = event->response;
+				dispatchEvent(evt);
+			} else {
+				Utils->log("SlsProtocolService error", Utils->LOG_LEVEL_R_ERR);
+				
+				//Also send the correct sls error code, so apps can handle it accordingly
+				SLSResultEvent slsErrorEvt=new SLSResultEvent(SLSResultEvent->SLS_ERROR);
+				slsErrorEvt->result = event->response;
+				dispatchEvent(slsErrorEvt);
+			}
+		}
+	}
+}
+//  class SlsProtocolService extends EventDispatcher {
+		//   HttpUserAgent _userAgent=null;
+		
+		//    char* INTERFACE_VERSION="1.0.0";
+
+		 SlsProtocolService::SlsProtocolService() {
+			super();
+			init();
+		}
+		
+		void SlsProtocolService::init() {
+			_userAgent = new HttpUserAgent();
+
+			char* s=dynamic_castchar*(x);
+			addListeners();	
+		}
+		
+		//   char* _url;
+		/**
+		 * The url to use for the request.
+		 * 
+		 * <p>
+		 * The url will typically be obtained from the PingResponse
+		 * </p>  
+		 * 
+		 * @default http://
+		 * 
+		 * @see com.rim.ota.sls.ping.PingResponse
+		 */
+		void SlsProtocolService::set_url(char* value) {
+			_url = value;	
+			
+			if (_userAgent != null && _url != null) {
+				_userAgent->url = _url;
+			}
+		}
+		char* SlsProtocolService::get_url() {
+			return _url;
+		}
+
+		/**
+		 * Used to send the request
+		 * 
+		 * @param request contains the request to send
+		 * 
+		 * @return <code>SLSErrorCodes.ERR_SUCCESS</code> if no errors or 
+		 *  <code>SLSErrorCodes.ERR_LOCAL_UNKNOWN_HTTP_REQUEST_ERROR</code>
+		 * 
+		 * @example
+		 * 
+		 * <listing version="3.0">
+		 *      // create a instance of the service
+		 *      _slsservice = new SlsProtocolService();
+		 * 
+		 *      // set the server url
+		 *		_slsservice.server = "http://10.3.154.160:8080/sls-cse-2.0.0-SNAPSHOT/updateDetails/1.0.0/";
+		 *				
+		 *		// wire in some event handlers
+		 *		_slsservice.addEventListener(SLSResultEvent.UPDATE_DETAILS, onUpdateDetails);
+		 *		_slsservice.addEventListener(SLSResultEvent.SLS_ERROR, onSLSError);
+		 *		_slsservice.addEventListener(ErrorEvent.ERROR, onError);
+		 *				
+		 *		// set the request timeout to 60 seconds
+		 *		_timeOut = setTimeout(onTimeOut, 60000);
+		 *
+		 *		// where the data will come from
+		 *		var td:TestData = new TestData();
+		 *		var values:Dictionary = td.result();
+		 *		
+		 *		// create an instance of the request
+		 *		var request:UpdateDetailRequest = new UpdateDetailRequest();
+		 *
+		 *		// set properties for the request
+		 *		request.scmVersionCurrent = values["scmVersionCurrent"];
+		 *		request.deviceId = values["deviceId"];
+		 *		request.clientProperties = values["clientProperties"];
+		 *		request.allowPatching = values["allowPatching"];
+		 *		request.authEchoTS = values["authEchoTS"]
+		 *		request.campaignId = values["campaignId"];
+		 *		request.sessionId = values["sessionId"];
+		 *		request.patchType = values["patchType"];
+		 *		request.upgradeMode = values["upgradeMode"];
+		 *		request.directiveType = values["directiveType"];
+		 *		request.directiveValue = values["directiveValue"];
+		 *		request.currentSoftware = values["current"];
+		 *		request.selectedSoftware = values["selected"];
+		 *				
+		 *		// send the request
+		 *		_slsservice.send(request);				
+		 * </listing>
+		 * 
+		 * <listing version="3.0"> 
+		 * protected function onUpdateDetails(event:SLSResultEvent):void {
+		 *		clearTimeout(_timeOut);
+		 *		responses.text = event.result.toString();
+		 * 
+		 *		var response:UpdateDetailResponse = event.result as UpdateDetailResponse;
+         *
+		 *		if (response.data.status.code == ServerStatusCodes.SUCCESS) {
+		 * 
+		 *      } 	
+		 *	}
+         *
+		 * </listing>
+		 * 
+		 * @see com.rim.ota.sls.details.UpdateDetailRequest
+		 * @see com.rim.ota.sls.summary.UpdateSummaryRequest
+		 * @see com.rim.ota.sls.ping.PingRequest
+		 * @see com.rim.ota.sls.document.AcceptanceRequest
+		 * @see com.rim.ota.sls.activation.ActivationRequest
+		 * @see com.rim.ota.sls.bundle.AvailableBundlesRequest
+		 * @see com.rim.ota.sls.status.StatusRequest
+		 * @see com.rim.ota.sls.config.ConfigRequest
+		 * @see com.rim.ota.sls.document.DocumentFetchRequest
+		 * @see com.rim.ota.sls.messages.DownloadControlRequest
+		 * 
+		 * @see SlsProtocolService#enableCompression
+		 * @see SlsProtocolService#transport
+		 * 
+		 * @see com.rim.ota.sls.status.ServerStatusCodes
+		 */
+		int SlsProtocolService::send(SLSRequest request) {
+			return _userAgent->sendRequest(request, _url, _compression, _transport);			
+		}
+		
+		//   bool _compression=false;
+		/**
+		 * used to enable or disable message compression.
+		 * 
+		 * @param value <code>true</code> to enable compression for 
+		 * messages or <code>false</code> to disable.
+		 * 
+		 * @default false
+		 * 
+		 */
+		void SlsProtocolService::set_enableCompression(bool value) {
+			_compression = value;	
+			if (null != _userAgent) {
+				_userAgent->compress = value;
+			}
+		}
+		
+		//   char* _transport="WIFI";
+		/**
+		 * Used to tell the network stack to use a specific transport
+		 * 
+		 * @example
+		 * 
+		 * <listing version="3.0">
+		 *  WIFI, 3G, 4G, EDGE
+		 * </listing>
+		 * 
+		 * @param value transport to use.
+		 * 
+		 * @default WIFI
+		 */
+		void SlsProtocolService::set_transport(char* value) {
+			_transport = value;
+		}
+		
+		/**
+		 * 
+		 * @private 
+		 */
+		void SlsProtocolService::addListeners() {
+			_userAgent->addEventListener(SLSResponseEvent->SLS_RESPONSE, onResponse);
+			_userAgent->addEventListener(ErrorEvent->ERROR, onError); 
+		}
+		
+		/**
+		 * 
+		 * @private 
+		 */
+		void SlsProtocolService::removeListeners() {
+			_userAgent->removeEventListener(SLSResponseEvent->SLS_RESPONSE, onResponse);
+			_userAgent->removeEventListener(ErrorEvent->ERROR, onError); 
+		}
+		
+		/**
+		 * 
+		 * @private 
+		 */
+		void SlsProtocolService::renewUserAgent() {
+
+			removeListeners();
+			
+            if (null != _userAgent) {
+                _userAgent->dispose();
+				_userAgent = null;
+            }
+            
+			_userAgent = new HttpUserAgent();
+			if (null != _url) {
+				_userAgent->url = _url;
+			}
+			
+			addListeners()
+		}
+		
+		/**
+		 * 
+		 * @param event
+		 * @private 
+		 */
+		void SlsProtocolService::onResponse(SLSResponseEvent event) {
+            Utils->log("SlsProtocolService::onResponse()", Utils->LOG_LEVEL_D1_INFO);
+			sendResultEvent(dynamic_castSLSResponseEvent(event->clone()));
+		}
+		
+		/**
+		 * 
+		 * @param event
+		 * @private 
+		 */
+		void SlsProtocolService::onError(ErrorEvent event) {
+            Utils->log("SlsProtocolService::onError()", Utils->LOG_LEVEL_D1_INFO);
+			ErrorEvent evt=new ErrorEvent(ErrorEvent->ERROR, false, false, event->text, event->errorID);
+			dispatchEvent(evt);
+		}
+		
+		/**
+		 * 
+		 * @param event
+		 * @private
+		 */
+		void SlsProtocolService::sendResultEvent(SLSResponseEvent event) {
+            Utils->log("SlsProtocolService::sendResultEvent()", Utils->LOG_LEVEL_D1_INFO);
+			if (!(_typeofSLSErrorResponse(event->response))) {
+				SLSResultEvent evt; 
+				
+				if (_typeofUpdateDetailResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->UPDATE_DETAILS);
+				} else if(_typeofStatusResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->STATUS);
+				} else if(_typeofDocumentFetchResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->DOCUMENT_FETCH);	
+				} else if(_typeofActivationResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->ACTIVATION);	
+				} else if (_typeofPingResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->PING);					
+				} else if (_typeofAvailableBundlesResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->AVAILABLE_BUNDLES);
+				} else if (_typeofUpdateSummaryResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->UPDATE_SUMMARY);					
+				} else if (_typeofAcceptanceResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->ACCEPTANCE);					
+				} else if (_typeofConfigResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->CONFIG);					
+				} else if (_typeofDownloadControlResponse(event->response)) {
+					evt = new SLSResultEvent(SLSResultEvent->DOWNLOAD_CONTROL);					
+				} 
+
+				evt->result = event->response;
+				dispatchEvent(evt);
+			} else {
+				Utils->log("SlsProtocolService error", Utils->LOG_LEVEL_R_ERR);
+				
+				//Also send the correct sls error code, so apps can handle it accordingly
+				SLSResultEvent slsErrorEvt=new SLSResultEvent(SLSResultEvent->SLS_ERROR);
+				slsErrorEvt->result = event->response;
+				dispatchEvent(slsErrorEvt);
+			}
+		}
+	}

@@ -1,0 +1,4 @@
+C:\Library\hg\xas\xas\obj\x86\Release\AS3Parser.cs
+C:\Library\hg\xas\xas\obj\x86\Release\AS3Lexer.cs
+C:\Library\hg\xas\xas\obj\x86\Release\AS3TParser.cs
+C:\Library\hg\xas\xas\obj\x86\Release\AS3TLexer.cs
