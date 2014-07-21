@@ -81,13 +81,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Antlr3.Runtime">
-      <HintPath>..\Reference\Antlr\Antlr3.Runtime.dll</HintPath>
+      <HintPath>O:\hg\xas\Reference\Antlr\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Antlr4.StringTemplate">
-      <HintPath>..\Reference\Antlr\Antlr4.StringTemplate.dll</HintPath>
+    <Reference Include="Antlr3.StringTemplate">
+      <HintPath>O:\hg\xas\Reference\Antlr\Antlr3.StringTemplate.dll</HintPath>
     </Reference>
     <Reference Include="CommandLine">
-      <HintPath>..\..\..\Projects\commandline-83785\src\libcmdline\bin\Release\CommandLine.dll</HintPath>
+      <HintPath>..\packages\CommandLineParser.1.9.71\lib\net40\CommandLine.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -99,7 +99,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeGenerator.cs" />
-    <Compile Include="ErrorListener.cs" />
     <Compile Include="ICodeGenerator.cs" />
     <Compile Include="KeywordMapping.cs" />
     <Compile Include="LinkedListToken.cs" />
@@ -148,6 +147,7 @@
     </Antlr3>
     <None Include="cpp.stg" />
     <None Include="cpp2.stg" />
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

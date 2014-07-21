@@ -6,8 +6,9 @@ using System.IO;
 using Mono.Options;
 using Antlr.Runtime;
 using Antlr.Runtime.Tree;
-using Antlr4.StringTemplate;
-using Antlr4.StringTemplate.Compiler;
+using Antlr3.ST;
+//using Antlr4.StringTemplate;
+//using Antlr4.StringTemplate.Compiler;
 //using Antlr4.StringTemplate;
 using CommandLine;
 using CommandLine.Text;
@@ -19,44 +20,42 @@ namespace com.redwine.xas
     {
         private static readonly HeadingInfo _headingInfo = new HeadingInfo("xas ActionScript Translator Version", "0.9");
 
-        private sealed class Options : CommandLineOptionsBase
+        private sealed class Options
         {
-            #region Standard Option Attribute
-            [Option("n", "name",
+        
+            [Option('n', "name",
                     Required = true,
                     HelpText = "Input file.")]
-            public string InputFile = String.Empty;
+            public string InputFile { get; set; }
 
-            [Option("R", "recurse",
+            [Option('R', "recurse",
                     HelpText = "Recurse looking for file(s).")]
-            public bool Recurse = false;
+            public bool Recurse { get; set; }
 
-            [Option("v", "verbose",
+            [Option('v', "verbose",
                     HelpText = "Verbose level. Range: from 0 to 2.")]
-            public int? VerboseLevel = 0;
+            public int VerboseLevel {get; set;}
 
-            [Option("t", "target",
+            [Option('t', "target",
                 HelpText = "Specify the output target (default C++)")]
-            public string Target = "C++";
+            public string Target { get; set; }
 
-            [Option("p", "prefix",
+            [Option('p', "prefix",
                 HelpText = "Prefix accessors with set_ or get_")]
-            public bool Prefix = true;
+            public bool Prefix { get; set; }
 
-            [Option("i", "ignore",
+            [Option('i', "ignore",
                    HelpText = "If file has errors don't stop.")]
-            public bool IgnoreErrors = false;
+            public bool IgnoreErrors { get; set; }
 
-            [Option("o", "output",
+            [Option('o', "output",
                 HelpText = "Specify the directory where translated files will be placed (default is xas_output in current folder)")]
-            public string OutputDir = ".";
+            public string OutputDir { get; set; }
 
-            #endregion
+            [ParserState]
+            public IParserState LastParserState { get; set; }
 
-            #region Specialized Option Attribute
-
-            [HelpOption(
-                    HelpText = "Display this help screen.")]
+            [HelpOption(HelpText = "Display this help screen.")]
             public string GetUsage()
             {
                 var help = new HelpText(Program._headingInfo);
@@ -72,7 +71,7 @@ namespace com.redwine.xas
 
             private void HandleParsingErrorsInHelp(HelpText help)
             {
-                if (this.LastPostParsingState.Errors.Count > 0)
+                if (this.LastParserState.Errors.Count > 0)
                 {
                 }
                 string errors = help.RenderParsingErrorsText(this, 2); // indent with two spaces
@@ -82,7 +81,7 @@ namespace com.redwine.xas
                     help.AddPreOptionsLine(errors);
                 }
             }
-            #endregion
+            
         }
 
         static void Main(string[] args)
@@ -93,8 +92,7 @@ namespace com.redwine.xas
             string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
 
             var options = new Options();
-            ICommandLineParser clp = new CommandLineParser(new CommandLineParserSettings(true, Console.Error));
-            if (!clp.ParseArguments(args, options))
+            if (!CommandLine.Parser.Default.ParseArguments(args, options))
             {
                 Environment.Exit(1);
             }
@@ -109,8 +107,8 @@ namespace com.redwine.xas
 #endif
             Console.WriteLine("Initializing...");
 
-            TemplateGroupFile loader = new TemplateGroupFile(path, null);
-            loader.Load();
+            StringTemplateGroup loader = new StringTemplateGroup("cpp2", path);
+            //loader.LoadGroup("cpp2");
 //            TemplateGroupString templates = loader.Compile() ;//"cpp2");//, typeof(TemplateLexer), null);
 //            templates.Listener = new ErrorListener();
 
@@ -137,7 +135,7 @@ namespace com.redwine.xas
                     //CommonTokenStream tokens = new CommonTokenStream(lex);
 
                     parser = new AS3TParser(tokens);
-                    parser.TemplateGroup = templates;
+                    parser.TemplateGroup = loader;
                     parser.OutputPath = options.OutputDir;
 
                     try
@@ -194,20 +192,29 @@ namespace com.redwine.xas
             else
             {
 #if ANTLR
-                AS3TLexer lex = new AS3TLexer(new ANTLRFileStream(options.InputFile));
-                TokenRewriteStream tokens = new TokenRewriteStream(lex);
-
-                AS3TParser parser = new AS3TParser(tokens);
-                parser.TemplateGroup = templates;
-                parser.OutputPath = options.OutputDir;
-
-                //parser.TemplateGroup = templates.
                 try
                 {
+                    AS3TLexer lex = new AS3TLexer(new ANTLRFileStream(options.InputFile));
+                    TokenRewriteStream tokens = new TokenRewriteStream(lex);
+
+                    AS3TParser parser = new AS3TParser(tokens);
+                    parser.TemplateGroup = loader;
+                    parser.OutputPath = options.OutputDir;
+
                     parser.program();
                     generateSource(options, tokens, parser.Classname);
                     generateHeader(options, tokens, parser.Classname, parser.Basetype, parser.SymTable);
                     parser.Reset();
+                }
+                catch(FileNotFoundException e)
+                {
+                    Console.WriteLine(e.Message);
+                    Environment.Exit(2);
+                }
+                catch (DirectoryNotFoundException e)
+                {
+                    Console.WriteLine(e.Message);
+                    Environment.Exit(2);
                 }
                 catch (NoViableAltException e)
                 {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.5.0.1 AS3T.g 2013-02-03 21:45:10
+// $ANTLR 3.5.0.1 AS3T.g 2014-07-20 20:22:59
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -29,11 +29,9 @@ using Antlr.Runtime.Tree;
 using System.Collections.Generic;
 using Antlr.Runtime;
 using Antlr.Runtime.Misc;
-using Antlr4.StringTemplate;
 
-
-//using Antlr3.ST;
-//using Antlr3.ST.Language;
+using Antlr3.ST;
+using Antlr3.ST.Language;
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "3.5.0.1")]
 [System.CLSCompliant(false)]
 public partial class AS3TParser : Antlr.Runtime.Parser
@@ -307,9 +305,9 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	{
 		OnCreated();
 	}
-    private TemplateGroupString _templateGroup = new TemplateGroupString("AS3TParserTemplates", typeof(AngleBracketTemplateLexer));
+	private StringTemplateGroup _templateGroup = new StringTemplateGroup("AS3TParserTemplates", typeof(AngleBracketTemplateLexer) );
 
-    public TemplateGroupString TemplateGroup
+	public StringTemplateGroup TemplateGroup
 	{
 		get { return _templateGroup; }
 		set { _templateGroup = value; }
@@ -558,12 +556,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "program"
 	// AS3T.g:332:8: public program : compilationUnit ;
 	[GrammarRule("program")]
-	public TemplateParserRuleReturnScope<Template, IToken> program()
+	public TemplateParserRuleReturnScope<StringTemplate, IToken> program()
 	{
 		EnterRule_program();
 		EnterRule("program", 1);
 		TraceIn("program", 1);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "program");
@@ -608,12 +606,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "compilationUnit"
 	// AS3T.g:335:1: compilationUnit : ( as2CompilationUnit | as3CompilationUnit ) ;
 	[GrammarRule("compilationUnit")]
-	private TemplateParserRuleReturnScope<Template, IToken> compilationUnit()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> compilationUnit()
 	{
 		EnterRule_compilationUnit();
 		EnterRule("compilationUnit", 2);
 		TraceIn("compilationUnit", 2);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "compilationUnit");
@@ -706,12 +704,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "as2CompilationUnit"
 	// AS3T.g:339:1: as2CompilationUnit : ( importDefinition )* as2Type ;
 	[GrammarRule("as2CompilationUnit")]
-	private TemplateParserRuleReturnScope<Template, IToken> as2CompilationUnit()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> as2CompilationUnit()
 	{
 		EnterRule_as2CompilationUnit();
 		EnterRule("as2CompilationUnit", 3);
 		TraceIn("as2CompilationUnit", 3);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "as2CompilationUnit");
@@ -775,7 +773,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -801,12 +799,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "as2Type"
 	// AS3T.g:345:1: as2Type : ( as2IncludeDirective | ( modifiers CLASS )=> as2ClassDefinition | ( modifiers INTERFACE )=> as2InterfaceDefinition ) ;
 	[GrammarRule("as2Type")]
-	private TemplateParserRuleReturnScope<Template, IToken> as2Type()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> as2Type()
 	{
 		EnterRule_as2Type();
 		EnterRule("as2Type", 4);
 		TraceIn("as2Type", 4);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "as2Type");
@@ -903,12 +901,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "as3CompilationUnit"
 	// AS3T.g:353:1: as3CompilationUnit : packageDecl ( packageBlockEntry )* EOF ;
 	[GrammarRule("as3CompilationUnit")]
-	private TemplateParserRuleReturnScope<Template, IToken> as3CompilationUnit()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> as3CompilationUnit()
 	{
 		EnterRule_as3CompilationUnit();
 		EnterRule("as3CompilationUnit", 5);
 		TraceIn("as3CompilationUnit", 5);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "as3CompilationUnit");
@@ -974,7 +972,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -1000,16 +998,16 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "packageDecl"
 	// AS3T.g:360:1: packageDecl : PACKAGE (id= identifierStar )? LCURLY ( packageBlockEntry )* RCURLY -> file1(x=$textdefs=$packageBlockEntry.text);
 	[GrammarRule("packageDecl")]
-	private TemplateParserRuleReturnScope<Template, IToken> packageDecl()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> packageDecl()
 	{
 		EnterRule_packageDecl();
 		EnterRule("packageDecl", 6);
 		TraceIn("packageDecl", 6);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> id = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> packageBlockEntry1 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> id = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> packageBlockEntry1 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "packageDecl");
 		DebugLocation(360, 1);
@@ -1126,7 +1124,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -1152,12 +1150,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "packageBlockEntry"
 	// AS3T.g:369:2: packageBlockEntry options {k=2; } : ( importDefinition | includeDirective | useNamespaceDirective | ( LBRACK IDENT )=> annotation | ( modifiers NAMESPACE )=> namespaceDefinition | ( modifiers CLASS )=> classDefinition | ( modifiers INTERFACE )=> interfaceDefinition | ( modifiers FUNCTION )=> methodDefinition | ( modifiers varOrConst )=> variableDefinition | statement );
 	[GrammarRule("packageBlockEntry")]
-	private TemplateParserRuleReturnScope<Template, IToken> packageBlockEntry()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> packageBlockEntry()
 	{
 		EnterRule_packageBlockEntry();
 		EnterRule("packageBlockEntry", 7);
 		TraceIn("packageBlockEntry", 7);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "packageBlockEntry");
@@ -1305,7 +1303,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -1331,12 +1329,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "endOfFile"
 	// AS3T.g:383:1: endOfFile : EOF ;
 	[GrammarRule("endOfFile")]
-	private TemplateParserRuleReturnScope<Template, IToken> endOfFile()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> endOfFile()
 	{
 		EnterRule_endOfFile();
 		EnterRule("endOfFile", 8);
 		TraceIn("endOfFile", 8);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "endOfFile");
@@ -1356,7 +1354,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -1382,16 +1380,16 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "importDefinition"
 	// AS3T.g:388:1: importDefinition : IMPORT identifierStar s= semi -> include(name=$identifierStar.text);
 	[GrammarRule("importDefinition")]
-	private TemplateParserRuleReturnScope<Template, IToken> importDefinition()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> importDefinition()
 	{
 		EnterRule_importDefinition();
 		EnterRule("importDefinition", 9);
 		TraceIn("importDefinition", 9);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> s = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> identifierStar2 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> s = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> identifierStar2 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "importDefinition");
 		DebugLocation(388, 1);
@@ -1438,7 +1436,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -1464,12 +1462,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "semi"
 	// AS3T.g:394:1: semi : SEMI ;
 	[GrammarRule("semi")]
-	private TemplateParserRuleReturnScope<Template, IToken> semi()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> semi()
 	{
 		EnterRule_semi();
 		EnterRule("semi", 10);
 		TraceIn("semi", 10);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "semi");
@@ -1511,15 +1509,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "classDefinition"
 	// AS3T.g:398:1: classDefinition : modifiers CLASS ident ( classExtendsClause )? ( implementsClause )? typeBlock -> comment(s=$text);
 	[GrammarRule("classDefinition")]
-	private TemplateParserRuleReturnScope<Template, IToken> classDefinition()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> classDefinition()
 	{
 		EnterRule_classDefinition();
 		EnterRule("classDefinition", 11);
 		TraceIn("classDefinition", 11);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> ident3 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> ident3 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "classDefinition");
 		DebugLocation(398, 1);
@@ -1636,7 +1634,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -1662,12 +1660,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "as2ClassDefinition"
 	// AS3T.g:409:1: as2ClassDefinition : modifiers CLASS identifier ( classExtendsClause )? ( implementsClause )? typeBlock ;
 	[GrammarRule("as2ClassDefinition")]
-	private TemplateParserRuleReturnScope<Template, IToken> as2ClassDefinition()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> as2ClassDefinition()
 	{
 		EnterRule_as2ClassDefinition();
 		EnterRule("as2ClassDefinition", 12);
 		TraceIn("as2ClassDefinition", 12);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "as2ClassDefinition");
@@ -1762,7 +1760,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -1788,12 +1786,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "interfaceDefinition"
 	// AS3T.g:419:1: interfaceDefinition : modifiers INTERFACE ident ( interfaceExtendsClause )? typeBlock ;
 	[GrammarRule("interfaceDefinition")]
-	private TemplateParserRuleReturnScope<Template, IToken> interfaceDefinition()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> interfaceDefinition()
 	{
 		EnterRule_interfaceDefinition();
 		EnterRule("interfaceDefinition", 13);
 		TraceIn("interfaceDefinition", 13);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "interfaceDefinition");
@@ -1858,7 +1856,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -1884,12 +1882,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "as2InterfaceDefinition"
 	// AS3T.g:428:1: as2InterfaceDefinition : modifiers INTERFACE identifier ( interfaceExtendsClause )? typeBlock ;
 	[GrammarRule("as2InterfaceDefinition")]
-	private TemplateParserRuleReturnScope<Template, IToken> as2InterfaceDefinition()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> as2InterfaceDefinition()
 	{
 		EnterRule_as2InterfaceDefinition();
 		EnterRule("as2InterfaceDefinition", 14);
 		TraceIn("as2InterfaceDefinition", 14);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "as2InterfaceDefinition");
@@ -1954,7 +1952,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -1980,15 +1978,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "classExtendsClause"
 	// AS3T.g:437:1: classExtendsClause : EXTENDS identifier ;
 	[GrammarRule("classExtendsClause")]
-	private TemplateParserRuleReturnScope<Template, IToken> classExtendsClause()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> classExtendsClause()
 	{
 		EnterRule_classExtendsClause();
 		EnterRule("classExtendsClause", 15);
 		TraceIn("classExtendsClause", 15);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> identifier4 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> identifier4 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "classExtendsClause");
 		DebugLocation(437, 1);
@@ -2017,7 +2015,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -2043,12 +2041,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "interfaceExtendsClause"
 	// AS3T.g:443:1: interfaceExtendsClause : EXTENDS identifier ( COMMA identifier )* ;
 	[GrammarRule("interfaceExtendsClause")]
-	private TemplateParserRuleReturnScope<Template, IToken> interfaceExtendsClause()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> interfaceExtendsClause()
 	{
 		EnterRule_interfaceExtendsClause();
 		EnterRule("interfaceExtendsClause", 16);
 		TraceIn("interfaceExtendsClause", 16);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "interfaceExtendsClause");
@@ -2116,7 +2114,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -2142,16 +2140,16 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "implementsClause"
 	// AS3T.g:449:1: implementsClause : IMPLEMENTS i1= identifier ( COMMA i2= identifier )* -> interfaces(i=$i1.text);
 	[GrammarRule("implementsClause")]
-	private TemplateParserRuleReturnScope<Template, IToken> implementsClause()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> implementsClause()
 	{
 		EnterRule_implementsClause();
 		EnterRule("implementsClause", 17);
 		TraceIn("implementsClause", 17);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> i1 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> i2 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> i1 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> i2 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "implementsClause");
 		DebugLocation(449, 1);
@@ -2236,7 +2234,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -2262,12 +2260,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "typeBlock"
 	// AS3T.g:455:1: typeBlock : LCURLY ( typeBlockEntry )* RCURLY ;
 	[GrammarRule("typeBlock")]
-	private TemplateParserRuleReturnScope<Template, IToken> typeBlock()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> typeBlock()
 	{
 		EnterRule_typeBlock();
 		EnterRule("typeBlock", 18);
 		TraceIn("typeBlock", 18);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "typeBlock");
@@ -2330,7 +2328,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -2356,12 +2354,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "typeBlockEntry"
 	// AS3T.g:463:1: typeBlockEntry options {k=2; } : ( includeDirective | importDefinition | ( LBRACK IDENT )=> annotation | ( modifiers varOrConst )=> variableDefinition | ( modifiers FUNCTION )=> methodDefinition | statement );
 	[GrammarRule("typeBlockEntry")]
-	private TemplateParserRuleReturnScope<Template, IToken> typeBlockEntry()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> typeBlockEntry()
 	{
 		EnterRule_typeBlockEntry();
 		EnterRule("typeBlockEntry", 19);
 		TraceIn("typeBlockEntry", 19);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "typeBlockEntry");
@@ -2461,7 +2459,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -2487,12 +2485,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "as2IncludeDirective"
 	// AS3T.g:474:1: as2IncludeDirective : INCLUDE_DIRECTIVE stringLiteral ;
 	[GrammarRule("as2IncludeDirective")]
-	private TemplateParserRuleReturnScope<Template, IToken> as2IncludeDirective()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> as2IncludeDirective()
 	{
 		EnterRule_as2IncludeDirective();
 		EnterRule("as2IncludeDirective", 20);
 		TraceIn("as2IncludeDirective", 20);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "as2IncludeDirective");
@@ -2539,15 +2537,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "includeDirective"
 	// AS3T.g:479:1: includeDirective : 'include' stringLiteral s= semi ;
 	[GrammarRule("includeDirective")]
-	private TemplateParserRuleReturnScope<Template, IToken> includeDirective()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> includeDirective()
 	{
 		EnterRule_includeDirective();
 		EnterRule("includeDirective", 21);
 		TraceIn("includeDirective", 21);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> s = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> s = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "includeDirective");
 		DebugLocation(479, 1);
@@ -2598,19 +2596,19 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "methodDefinition"
 	// AS3T.g:485:1: methodDefinition : modifiers FUNCTION ( accessorRole )? methodName parameterDeclarationList ( typeExpression )? maybeBlock -> method(class=_classnamename=$methodName.textret=$typeExpression.textargs=$parameterDeclarationList.textblock=$maybeBlock.textaccessor=$accessorRole.text);
 	[GrammarRule("methodDefinition")]
-	private TemplateParserRuleReturnScope<Template, IToken> methodDefinition()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> methodDefinition()
 	{
 		EnterRule_methodDefinition();
 		EnterRule("methodDefinition", 22);
 		TraceIn("methodDefinition", 22);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> methodName5 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> parameterDeclarationList6 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> typeExpression7 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> maybeBlock8 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> accessorRole9 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> methodName5 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> parameterDeclarationList6 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> typeExpression7 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> maybeBlock8 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> accessorRole9 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		 _infunc = true; 
 		try { DebugEnterRule(GrammarFileName, "methodDefinition");
@@ -2789,12 +2787,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "maybeBlock"
 	// AS3T.g:513:1: maybeBlock options {k=1; } : ( ( LCURLY )=> block |);
 	[GrammarRule("maybeBlock")]
-	private TemplateParserRuleReturnScope<Template, IToken> maybeBlock()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> maybeBlock()
 	{
 		EnterRule_maybeBlock();
 		EnterRule("maybeBlock", 23);
 		TraceIn("maybeBlock", 23);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "maybeBlock");
@@ -2862,12 +2860,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "methodName"
 	// AS3T.g:519:1: methodName : ident ;
 	[GrammarRule("methodName")]
-	private TemplateParserRuleReturnScope<Template, IToken> methodName()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> methodName()
 	{
 		EnterRule_methodName();
 		EnterRule("methodName", 24);
 		TraceIn("methodName", 24);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "methodName");
@@ -2890,7 +2888,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -2916,12 +2914,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "accessorRole"
 	// AS3T.g:525:1: accessorRole : ( GET | SET );
 	[GrammarRule("accessorRole")]
-	private TemplateParserRuleReturnScope<Template, IToken> accessorRole()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> accessorRole()
 	{
 		EnterRule_accessorRole();
 		EnterRule("accessorRole", 25);
 		TraceIn("accessorRole", 25);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "accessorRole");
@@ -2985,7 +2983,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -3011,12 +3009,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "namespaceDefinition"
 	// AS3T.g:531:1: namespaceDefinition : modifiers NAMESPACE namespaceName ;
 	[GrammarRule("namespaceDefinition")]
-	private TemplateParserRuleReturnScope<Template, IToken> namespaceDefinition()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> namespaceDefinition()
 	{
 		EnterRule_namespaceDefinition();
 		EnterRule("namespaceDefinition", 26);
 		TraceIn("namespaceDefinition", 26);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "namespaceDefinition");
@@ -3068,15 +3066,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "useNamespaceDirective"
 	// AS3T.g:536:1: useNamespaceDirective : USE NAMESPACE namespaceName s= semi ;
 	[GrammarRule("useNamespaceDirective")]
-	private TemplateParserRuleReturnScope<Template, IToken> useNamespaceDirective()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> useNamespaceDirective()
 	{
 		EnterRule_useNamespaceDirective();
 		EnterRule("useNamespaceDirective", 27);
 		TraceIn("useNamespaceDirective", 27);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> s = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> s = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "useNamespaceDirective");
 		DebugLocation(536, 1);
@@ -3129,17 +3127,17 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "variableDefinition"
 	// AS3T.g:540:1: variableDefinition : modifiers varOrConst v1= variableDeclarator ( COMMA v2= variableDeclarator )* s= semi -> comment(s=$text);
 	[GrammarRule("variableDefinition")]
-	private TemplateParserRuleReturnScope<Template, IToken> variableDefinition()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> variableDefinition()
 	{
 		EnterRule_variableDefinition();
 		EnterRule("variableDefinition", 28);
 		TraceIn("variableDefinition", 28);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> v1 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> v2 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> s = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> v1 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> v2 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> s = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "variableDefinition");
 		DebugLocation(540, 1);
@@ -3237,7 +3235,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -3263,15 +3261,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "declaration"
 	// AS3T.g:549:1: declaration : varOrConst variableDeclarator declarationTail -> decl2(name=$variableDeclarator.text);
 	[GrammarRule("declaration")]
-	private TemplateParserRuleReturnScope<Template, IToken> declaration()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> declaration()
 	{
 		EnterRule_declaration();
 		EnterRule("declaration", 29);
 		TraceIn("declaration", 29);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> variableDeclarator10 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> variableDeclarator10 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "declaration");
 		DebugLocation(549, 1);
@@ -3321,7 +3319,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -3347,12 +3345,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "varOrConst"
 	// AS3T.g:555:1: varOrConst : ( VAR -> ignore(| CONST -> ignore();
 	[GrammarRule("varOrConst")]
-	private TemplateParserRuleReturnScope<Template, IToken> varOrConst()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> varOrConst()
 	{
 		EnterRule_varOrConst();
 		EnterRule("varOrConst", 30);
 		TraceIn("varOrConst", 30);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "varOrConst");
@@ -3443,7 +3441,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -3469,12 +3467,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "declarationTail"
 	// AS3T.g:561:1: declarationTail : ( COMMA variableDeclarator )* ;
 	[GrammarRule("declarationTail")]
-	private TemplateParserRuleReturnScope<Template, IToken> declarationTail()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> declarationTail()
 	{
 		EnterRule_declarationTail();
 		EnterRule("declarationTail", 31);
 		TraceIn("declarationTail", 31);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "declarationTail");
@@ -3557,15 +3555,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "variableInitializer"
 	// AS3T.g:565:1: variableInitializer : ASSIGN expression -> assign(rhs=$expression.text);
 	[GrammarRule("variableInitializer")]
-	private TemplateParserRuleReturnScope<Template, IToken> variableInitializer()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> variableInitializer()
 	{
 		EnterRule_variableInitializer();
 		EnterRule("variableInitializer", 32);
 		TraceIn("variableInitializer", 32);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> expression11 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> expression11 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "variableInitializer");
 		DebugLocation(565, 1);
@@ -3607,7 +3605,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -3633,17 +3631,17 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "variableDeclarator"
 	// AS3T.g:571:1: variableDeclarator : id= ident ( typeExpression )? ( variableInitializer )? -> var(name=$ident.sttype=$typeExpression.stinit=$variableInitializer.stptr=\"\");
 	[GrammarRule("variableDeclarator")]
-	private TemplateParserRuleReturnScope<Template, IToken> variableDeclarator()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> variableDeclarator()
 	{
 		EnterRule_variableDeclarator();
 		EnterRule("variableDeclarator", 33);
 		TraceIn("variableDeclarator", 33);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> id = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> typeExpression12 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> variableInitializer13 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> id = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> typeExpression12 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> variableInitializer13 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "variableDeclarator");
 		DebugLocation(571, 1);
@@ -3765,7 +3763,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -3791,12 +3789,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "parameterDeclarationList"
 	// AS3T.g:598:1: parameterDeclarationList : LPAREN ( parameterDeclaration ( COMMA parameterDeclaration )* )? RPAREN ;
 	[GrammarRule("parameterDeclarationList")]
-	private TemplateParserRuleReturnScope<Template, IToken> parameterDeclarationList()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> parameterDeclarationList()
 	{
 		EnterRule_parameterDeclarationList();
 		EnterRule("parameterDeclarationList", 34);
 		TraceIn("parameterDeclarationList", 34);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "parameterDeclarationList");
@@ -3913,12 +3911,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "parameterDeclaration"
 	// AS3T.g:608:1: parameterDeclaration : ( basicParameterDeclaration | parameterRestDeclaration );
 	[GrammarRule("parameterDeclaration")]
-	private TemplateParserRuleReturnScope<Template, IToken> parameterDeclaration()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> parameterDeclaration()
 	{
 		EnterRule_parameterDeclaration();
 		EnterRule("parameterDeclaration", 35);
 		TraceIn("parameterDeclaration", 35);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "parameterDeclaration");
@@ -3978,7 +3976,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -4004,17 +4002,17 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "basicParameterDeclaration"
 	// AS3T.g:613:1: basicParameterDeclaration : ( CONST )? ident ( typeExpression )? ( parameterDefault )? -> paramdecl(name=$ident.texttype=$typeExpression.textinit=$parameterDefault.text);
 	[GrammarRule("basicParameterDeclaration")]
-	private TemplateParserRuleReturnScope<Template, IToken> basicParameterDeclaration()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> basicParameterDeclaration()
 	{
 		EnterRule_basicParameterDeclaration();
 		EnterRule("basicParameterDeclaration", 36);
 		TraceIn("basicParameterDeclaration", 36);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> ident14 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> typeExpression15 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> parameterDefault16 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> ident14 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> typeExpression15 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> parameterDefault16 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "basicParameterDeclaration");
 		DebugLocation(613, 1);
@@ -4141,7 +4139,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -4167,12 +4165,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "parameterDefault"
 	// AS3T.g:619:1: parameterDefault : ASSIGN assignmentExpression ;
 	[GrammarRule("parameterDefault")]
-	private TemplateParserRuleReturnScope<Template, IToken> parameterDefault()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> parameterDefault()
 	{
 		EnterRule_parameterDefault();
 		EnterRule("parameterDefault", 37);
 		TraceIn("parameterDefault", 37);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "parameterDefault");
@@ -4197,7 +4195,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -4223,16 +4221,16 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "parameterRestDeclaration"
 	// AS3T.g:625:1: parameterRestDeclaration : REST ( ident )? ( typeExpression )? -> param(name=$ident.texttype=$typeExpression.text);
 	[GrammarRule("parameterRestDeclaration")]
-	private TemplateParserRuleReturnScope<Template, IToken> parameterRestDeclaration()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> parameterRestDeclaration()
 	{
 		EnterRule_parameterRestDeclaration();
 		EnterRule("parameterRestDeclaration", 38);
 		TraceIn("parameterRestDeclaration", 38);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> ident17 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> typeExpression18 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> ident17 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> typeExpression18 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "parameterRestDeclaration");
 		DebugLocation(625, 1);
@@ -4329,7 +4327,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -4355,12 +4353,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "block"
 	// AS3T.g:631:1: block : LCURLY ( blockEntry )* RCURLY ;
 	[GrammarRule("block")]
-	private TemplateParserRuleReturnScope<Template, IToken> block()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> block()
 	{
 		EnterRule_block();
 		EnterRule("block", 39);
 		TraceIn("block", 39);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "block");
@@ -4423,7 +4421,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -4449,12 +4447,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "blockEntry"
 	// AS3T.g:637:1: blockEntry : statement ;
 	[GrammarRule("blockEntry")]
-	private TemplateParserRuleReturnScope<Template, IToken> blockEntry()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> blockEntry()
 	{
 		EnterRule_blockEntry();
 		EnterRule("blockEntry", 40);
 		TraceIn("blockEntry", 40);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "blockEntry");
@@ -4499,12 +4497,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "condition"
 	// AS3T.g:641:1: condition : LPAREN expression RPAREN ;
 	[GrammarRule("condition")]
-	private TemplateParserRuleReturnScope<Template, IToken> condition()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> condition()
 	{
 		EnterRule_condition();
 		EnterRule("condition", 41);
 		TraceIn("condition", 41);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "condition");
@@ -4553,12 +4551,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "statement"
 	// AS3T.g:646:1: statement : ( ( LCURLY )=> block | declarationStatement | expressionStatement | ifStatement | forStatement | whileStatement | doWhileStatement | withStatement | switchStatement | breakStatement | continueStatement | returnStatement | throwStatement | tryStatement | defaultXMLNamespaceStatement | semi );
 	[GrammarRule("statement")]
-	private TemplateParserRuleReturnScope<Template, IToken> statement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> statement()
 	{
 		EnterRule_statement();
 		EnterRule("statement", 42);
 		TraceIn("statement", 42);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "statement");
@@ -4917,7 +4915,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -4943,15 +4941,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "declarationStatement"
 	// AS3T.g:667:1: declarationStatement : declaration s= semi ;
 	[GrammarRule("declarationStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> declarationStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> declarationStatement()
 	{
 		EnterRule_declarationStatement();
 		EnterRule("declarationStatement", 43);
 		TraceIn("declarationStatement", 43);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> s = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> s = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "declarationStatement");
 		DebugLocation(667, 1);
@@ -4978,7 +4976,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -5004,15 +5002,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "expressionStatement"
 	// AS3T.g:673:1: expressionStatement : expressionList s= semi ;
 	[GrammarRule("expressionStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> expressionStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> expressionStatement()
 	{
 		EnterRule_expressionStatement();
 		EnterRule("expressionStatement", 44);
 		TraceIn("expressionStatement", 44);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> s = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> s = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "expressionStatement");
 		DebugLocation(673, 1);
@@ -5039,7 +5037,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -5065,12 +5063,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "ifStatement"
 	// AS3T.g:679:1: ifStatement : IF condition statement ( ( ELSE )=> elseClause )? ;
 	[GrammarRule("ifStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> ifStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> ifStatement()
 	{
 		EnterRule_ifStatement();
 		EnterRule("ifStatement", 45);
 		TraceIn("ifStatement", 45);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "ifStatement");
@@ -5135,7 +5133,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -5161,12 +5159,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "elseClause"
 	// AS3T.g:686:1: elseClause : ELSE statement ;
 	[GrammarRule("elseClause")]
-	private TemplateParserRuleReturnScope<Template, IToken> elseClause()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> elseClause()
 	{
 		EnterRule_elseClause();
 		EnterRule("elseClause", 46);
 		TraceIn("elseClause", 46);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "elseClause");
@@ -5191,7 +5189,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -5217,15 +5215,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "throwStatement"
 	// AS3T.g:692:1: throwStatement : 'throw' expression s= semi ;
 	[GrammarRule("throwStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> throwStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> throwStatement()
 	{
 		EnterRule_throwStatement();
 		EnterRule("throwStatement", 47);
 		TraceIn("throwStatement", 47);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> s = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> s = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "throwStatement");
 		DebugLocation(692, 1);
@@ -5254,7 +5252,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -5280,12 +5278,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "tryStatement"
 	// AS3T.g:698:1: tryStatement : 'try' block ( catchBlock )* ( finallyBlock )? ;
 	[GrammarRule("tryStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> tryStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> tryStatement()
 	{
 		EnterRule_tryStatement();
 		EnterRule("tryStatement", 48);
 		TraceIn("tryStatement", 48);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "tryStatement");
@@ -5403,17 +5401,17 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "catchBlock"
 	// AS3T.g:706:1: catchBlock : 'catch' LPAREN ident ( typeExpression )? RPAREN block -> catchBlock(t=$typeExpression.textid=$ident.textb=$block.text);
 	[GrammarRule("catchBlock")]
-	private TemplateParserRuleReturnScope<Template, IToken> catchBlock()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> catchBlock()
 	{
 		EnterRule_catchBlock();
 		EnterRule("catchBlock", 49);
 		TraceIn("catchBlock", 49);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> typeExpression19 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> ident20 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> block21 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> typeExpression19 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> ident20 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> block21 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "catchBlock");
 		DebugLocation(706, 1);
@@ -5516,12 +5514,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "finallyBlock"
 	// AS3T.g:711:1: finallyBlock : 'finally' block ;
 	[GrammarRule("finallyBlock")]
-	private TemplateParserRuleReturnScope<Template, IToken> finallyBlock()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> finallyBlock()
 	{
 		EnterRule_finallyBlock();
 		EnterRule("finallyBlock", 50);
 		TraceIn("finallyBlock", 50);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "finallyBlock");
@@ -5568,15 +5566,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "returnStatement"
 	// AS3T.g:715:1: returnStatement : RETURN ( expression )? s= semi ;
 	[GrammarRule("returnStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> returnStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> returnStatement()
 	{
 		EnterRule_returnStatement();
 		EnterRule("returnStatement", 51);
 		TraceIn("returnStatement", 51);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> s = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> s = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "returnStatement");
 		DebugLocation(715, 1);
@@ -5630,7 +5628,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -5656,15 +5654,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "continueStatement"
 	// AS3T.g:721:1: continueStatement : CONTINUE s= semi ;
 	[GrammarRule("continueStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> continueStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> continueStatement()
 	{
 		EnterRule_continueStatement();
 		EnterRule("continueStatement", 52);
 		TraceIn("continueStatement", 52);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> s = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> s = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "continueStatement");
 		DebugLocation(721, 1);
@@ -5688,7 +5686,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -5714,15 +5712,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "breakStatement"
 	// AS3T.g:727:1: breakStatement : BREAK s= semi ;
 	[GrammarRule("breakStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> breakStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> breakStatement()
 	{
 		EnterRule_breakStatement();
 		EnterRule("breakStatement", 53);
 		TraceIn("breakStatement", 53);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> s = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> s = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "breakStatement");
 		DebugLocation(727, 1);
@@ -5768,12 +5766,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "switchStatement"
 	// AS3T.g:732:1: switchStatement : SWITCH condition switchBlock ;
 	[GrammarRule("switchStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> switchStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> switchStatement()
 	{
 		EnterRule_switchStatement();
 		EnterRule("switchStatement", 54);
 		TraceIn("switchStatement", 54);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "switchStatement");
@@ -5825,12 +5823,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "switchBlock"
 	// AS3T.g:738:1: switchBlock : LCURLY ( caseStatement )* ( defaultStatement )? RCURLY ;
 	[GrammarRule("switchBlock")]
-	private TemplateParserRuleReturnScope<Template, IToken> switchBlock()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> switchBlock()
 	{
 		EnterRule_switchBlock();
 		EnterRule("switchBlock", 55);
 		TraceIn("switchBlock", 55);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "switchBlock");
@@ -5945,15 +5943,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "caseStatement"
 	// AS3T.g:746:1: caseStatement : CASE expression COLON l= switchStatementList ;
 	[GrammarRule("caseStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> caseStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> caseStatement()
 	{
 		EnterRule_caseStatement();
 		EnterRule("caseStatement", 56);
 		TraceIn("caseStatement", 56);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> l = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> l = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "caseStatement");
 		DebugLocation(746, 1);
@@ -6006,15 +6004,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "defaultStatement"
 	// AS3T.g:750:1: defaultStatement : DEFAULT COLON l= switchStatementList ;
 	[GrammarRule("defaultStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> defaultStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> defaultStatement()
 	{
 		EnterRule_defaultStatement();
 		EnterRule("defaultStatement", 57);
 		TraceIn("defaultStatement", 57);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> l = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> l = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "defaultStatement");
 		DebugLocation(750, 1);
@@ -6040,7 +6038,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -6066,12 +6064,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "switchStatementList"
 	// AS3T.g:755:1: switchStatementList : ( statement )* ;
 	[GrammarRule("switchStatementList")]
-	private TemplateParserRuleReturnScope<Template, IToken> switchStatementList()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> switchStatementList()
 	{
 		EnterRule_switchStatementList();
 		EnterRule("switchStatementList", 58);
 		TraceIn("switchStatementList", 58);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "switchStatementList");
@@ -6163,12 +6161,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "forEachStatement"
 	// AS3T.g:759:1: forEachStatement : f= FOR EACH LPAREN forInClause RPAREN statement ;
 	[GrammarRule("forEachStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> forEachStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> forEachStatement()
 	{
 		EnterRule_forEachStatement();
 		EnterRule("forEachStatement", 59);
 		TraceIn("forEachStatement", 59);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		IToken f = default(IToken);
@@ -6228,12 +6226,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "forStatement"
 	// AS3T.g:768:1: forStatement : f= FOR LPAREN ( forInClause RPAREN statement | traditionalForClause RPAREN statement ) ;
 	[GrammarRule("forStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> forStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> forStatement()
 	{
 		EnterRule_forStatement();
 		EnterRule("forStatement", 60);
 		TraceIn("forStatement", 60);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		IToken f = default(IToken);
@@ -6316,7 +6314,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -6342,17 +6340,17 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "traditionalForClause"
 	// AS3T.g:775:1: traditionalForClause : i= forInit semi c= forCond semi u= forIter ;
 	[GrammarRule("traditionalForClause")]
-	private TemplateParserRuleReturnScope<Template, IToken> traditionalForClause()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> traditionalForClause()
 	{
 		EnterRule_traditionalForClause();
 		EnterRule("traditionalForClause", 61);
 		TraceIn("traditionalForClause", 61);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> i = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> c = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> u = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> i = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> c = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> u = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "traditionalForClause");
 		DebugLocation(775, 1);
@@ -6416,12 +6414,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "forInClause"
 	// AS3T.g:781:1: forInClause : forInClauseDecl IN forInClauseTail ;
 	[GrammarRule("forInClause")]
-	private TemplateParserRuleReturnScope<Template, IToken> forInClause()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> forInClause()
 	{
 		EnterRule_forInClause();
 		EnterRule("forInClause", 62);
 		TraceIn("forInClause", 62);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "forInClause");
@@ -6473,12 +6471,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "forInClauseDecl"
 	// AS3T.g:785:1: forInClauseDecl : ( varOrConst ident ( typeExpression )? | ident );
 	[GrammarRule("forInClauseDecl")]
-	private TemplateParserRuleReturnScope<Template, IToken> forInClauseDecl()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> forInClauseDecl()
 	{
 		EnterRule_forInClauseDecl();
 		EnterRule("forInClauseDecl", 63);
 		TraceIn("forInClauseDecl", 63);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "forInClauseDecl");
@@ -6595,12 +6593,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "forInClauseTail"
 	// AS3T.g:791:1: forInClauseTail : expressionList ;
 	[GrammarRule("forInClauseTail")]
-	private TemplateParserRuleReturnScope<Template, IToken> forInClauseTail()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> forInClauseTail()
 	{
 		EnterRule_forInClauseTail();
 		EnterRule("forInClauseTail", 64);
 		TraceIn("forInClauseTail", 64);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "forInClauseTail");
@@ -6645,12 +6643,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "forInit"
 	// AS3T.g:796:1: forInit : ( declaration | expressionList )? ;
 	[GrammarRule("forInit")]
-	private TemplateParserRuleReturnScope<Template, IToken> forInit()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> forInit()
 	{
 		EnterRule_forInit();
 		EnterRule("forInit", 65);
 		TraceIn("forInit", 65);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "forInit");
@@ -6714,7 +6712,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -6740,12 +6738,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "forCond"
 	// AS3T.g:801:1: forCond : ( expressionList )? ;
 	[GrammarRule("forCond")]
-	private TemplateParserRuleReturnScope<Template, IToken> forCond()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> forCond()
 	{
 		EnterRule_forCond();
 		EnterRule("forCond", 66);
 		TraceIn("forCond", 66);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "forCond");
@@ -6793,7 +6791,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -6819,12 +6817,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "forIter"
 	// AS3T.g:806:1: forIter : ( expressionList )? ;
 	[GrammarRule("forIter")]
-	private TemplateParserRuleReturnScope<Template, IToken> forIter()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> forIter()
 	{
 		EnterRule_forIter();
 		EnterRule("forIter", 67);
 		TraceIn("forIter", 67);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "forIter");
@@ -6872,7 +6870,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -6898,12 +6896,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "whileStatement"
 	// AS3T.g:811:1: whileStatement : WHILE condition statement ;
 	[GrammarRule("whileStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> whileStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> whileStatement()
 	{
 		EnterRule_whileStatement();
 		EnterRule("whileStatement", 68);
 		TraceIn("whileStatement", 68);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "whileStatement");
@@ -6955,12 +6953,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "doWhileStatement"
 	// AS3T.g:816:1: doWhileStatement : DO statement WHILE condition semi ;
 	[GrammarRule("doWhileStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> doWhileStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> doWhileStatement()
 	{
 		EnterRule_doWhileStatement();
 		EnterRule("doWhileStatement", 69);
 		TraceIn("doWhileStatement", 69);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "doWhileStatement");
@@ -7019,12 +7017,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "withStatement"
 	// AS3T.g:821:1: withStatement : WITH condition statement ;
 	[GrammarRule("withStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> withStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> withStatement()
 	{
 		EnterRule_withStatement();
 		EnterRule("withStatement", 70);
 		TraceIn("withStatement", 70);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "withStatement");
@@ -7076,12 +7074,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "defaultXMLNamespaceStatement"
 	// AS3T.g:825:1: defaultXMLNamespaceStatement : DEFAULT XML NAMESPACE ASSIGN expression semi ;
 	[GrammarRule("defaultXMLNamespaceStatement")]
-	private TemplateParserRuleReturnScope<Template, IToken> defaultXMLNamespaceStatement()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> defaultXMLNamespaceStatement()
 	{
 		EnterRule_defaultXMLNamespaceStatement();
 		EnterRule("defaultXMLNamespaceStatement", 71);
 		TraceIn("defaultXMLNamespaceStatement", 71);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "defaultXMLNamespaceStatement");
@@ -7139,15 +7137,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "typeExpression"
 	// AS3T.g:830:1: typeExpression : ( COLON typeIdentifier -> type(t=$typeIdentifier.text)| 'void' -> type(t=\"void\")| STAR -> type(t=\"void*\"));
 	[GrammarRule("typeExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> typeExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> typeExpression()
 	{
 		EnterRule_typeExpression();
 		EnterRule("typeExpression", 72);
 		TraceIn("typeExpression", 72);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> typeIdentifier22 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> typeIdentifier22 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "typeExpression");
 		DebugLocation(830, 4);
@@ -7277,7 +7275,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template =  new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template =  new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -7303,12 +7301,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "typeIdentifier"
 	// AS3T.g:837:1: typeIdentifier : ident ( propOrIdent )* ;
 	[GrammarRule("typeIdentifier")]
-	private TemplateParserRuleReturnScope<Template, IToken> typeIdentifier()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> typeIdentifier()
 	{
 		EnterRule_typeIdentifier();
 		EnterRule("typeIdentifier", 73);
 		TraceIn("typeIdentifier", 73);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "typeIdentifier");
@@ -7372,7 +7370,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -7398,12 +7396,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "identifier"
 	// AS3T.g:842:1: identifier : ( qualifiedIdent ) ( propOrIdent )* ;
 	[GrammarRule("identifier")]
-	private TemplateParserRuleReturnScope<Template, IToken> identifier()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> identifier()
 	{
 		EnterRule_identifier();
 		EnterRule("identifier", 74);
 		TraceIn("identifier", 74);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "identifier");
@@ -7475,7 +7473,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -7501,12 +7499,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "qualifiedIdent"
 	// AS3T.g:847:1: qualifiedIdent options {k=1; } : ( ( namespaceName DBL_COLON )=> namespaceName DBL_COLON ident | ident );
 	[GrammarRule("qualifiedIdent")]
-	private TemplateParserRuleReturnScope<Template, IToken> qualifiedIdent()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> qualifiedIdent()
 	{
 		EnterRule_qualifiedIdent();
 		EnterRule("qualifiedIdent", 75);
 		TraceIn("qualifiedIdent", 75);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "qualifiedIdent");
@@ -7605,7 +7603,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -7631,12 +7629,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "namespaceName"
 	// AS3T.g:854:1: namespaceName : ( IDENT | reservedNamespace );
 	[GrammarRule("namespaceName")]
-	private TemplateParserRuleReturnScope<Template, IToken> namespaceName()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> namespaceName()
 	{
 		EnterRule_namespaceName();
 		EnterRule("namespaceName", 76);
 		TraceIn("namespaceName", 76);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "namespaceName");
@@ -7693,7 +7691,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -7719,12 +7717,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "reservedNamespace"
 	// AS3T.g:859:1: reservedNamespace : ( PUBLIC -> ignore(| PRIVATE -> ignore(| PROTECTED -> ignore(| INTERNAL -> ignore();
 	[GrammarRule("reservedNamespace")]
-	private TemplateParserRuleReturnScope<Template, IToken> reservedNamespace()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> reservedNamespace()
 	{
 		EnterRule_reservedNamespace();
 		EnterRule("reservedNamespace", 77);
 		TraceIn("reservedNamespace", 77);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "reservedNamespace");
@@ -7894,7 +7892,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -7920,12 +7918,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "identifierStar"
 	// AS3T.g:867:1: identifierStar : ident ( dotIdent )* ( DOT STAR )? ;
 	[GrammarRule("identifierStar")]
-	private TemplateParserRuleReturnScope<Template, IToken> identifierStar()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> identifierStar()
 	{
 		EnterRule_identifierStar();
 		EnterRule("identifierStar", 78);
 		TraceIn("identifierStar", 78);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "identifierStar");
@@ -8025,7 +8023,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -8051,15 +8049,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "dotIdent"
 	// AS3T.g:874:1: dotIdent : DOT ident -> path(p=$ident.text);
 	[GrammarRule("dotIdent")]
-	private TemplateParserRuleReturnScope<Template, IToken> dotIdent()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> dotIdent()
 	{
 		EnterRule_dotIdent();
 		EnterRule("dotIdent", 79);
 		TraceIn("dotIdent", 79);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> ident23 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> ident23 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "dotIdent");
 		DebugLocation(874, 4);
@@ -8123,12 +8121,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "ident"
 	// AS3T.g:878:1: ident : ( IDENT | USE | XML | TRACE | DYNAMIC | NAMESPACE | IS | AS | GET | SET |z= SUPER -> comment(s=$z.text));
 	[GrammarRule("ident")]
-	private TemplateParserRuleReturnScope<Template, IToken> ident()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> ident()
 	{
 		EnterRule_ident();
 		EnterRule("ident", 80);
 		TraceIn("ident", 80);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		IToken z = default(IToken);
@@ -8332,7 +8330,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -8358,12 +8356,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "annotation"
 	// AS3T.g:893:1: annotation : LBRACK ident ( annotationParamList )? RBRACK -> notsupported(s=$text);
 	[GrammarRule("annotation")]
-	private TemplateParserRuleReturnScope<Template, IToken> annotation()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> annotation()
 	{
 		EnterRule_annotation();
 		EnterRule("annotation", 81);
 		TraceIn("annotation", 81);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "annotation");
@@ -8438,7 +8436,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -8464,12 +8462,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "annotationParamList"
 	// AS3T.g:902:1: annotationParamList : LPAREN ( annotationParam ( COMMA annotationParam )* )? RPAREN ;
 	[GrammarRule("annotationParamList")]
-	private TemplateParserRuleReturnScope<Template, IToken> annotationParamList()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> annotationParamList()
 	{
 		EnterRule_annotationParamList();
 		EnterRule("annotationParamList", 82);
 		TraceIn("annotationParamList", 82);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "annotationParamList");
@@ -8586,12 +8584,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "annotationParam"
 	// AS3T.g:912:1: annotationParam : ( ident ASSIGN constant | constant | ident );
 	[GrammarRule("annotationParam")]
-	private TemplateParserRuleReturnScope<Template, IToken> annotationParam()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> annotationParam()
 	{
 		EnterRule_annotationParam();
 		EnterRule("annotationParam", 83);
 		TraceIn("annotationParam", 83);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "annotationParam");
@@ -8932,12 +8930,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "modifiers"
 	// AS3T.g:918:1: modifiers : ( modifier ( modifier )* )? ;
 	[GrammarRule("modifiers")]
-	private TemplateParserRuleReturnScope<Template, IToken> modifiers()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> modifiers()
 	{
 		EnterRule_modifiers();
 		EnterRule("modifiers", 84);
 		TraceIn("modifiers", 84);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "modifiers");
@@ -9026,7 +9024,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -9052,12 +9050,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "modifier"
 	// AS3T.g:923:1: modifier : ( namespaceName | STATIC -> ignore(| 'final' | 'enumerable' | 'explicit' | 'override' | DYNAMIC | 'intrinsic' );
 	[GrammarRule("modifier")]
-	private TemplateParserRuleReturnScope<Template, IToken> modifier()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> modifier()
 	{
 		EnterRule_modifier();
 		EnterRule("modifier", 85);
 		TraceIn("modifier", 85);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "modifier");
@@ -9227,7 +9225,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -9253,12 +9251,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "arguments"
 	// AS3T.g:935:1: arguments : ( LPAREN expressionList RPAREN | LPAREN RPAREN );
 	[GrammarRule("arguments")]
-	private TemplateParserRuleReturnScope<Template, IToken> arguments()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> arguments()
 	{
 		EnterRule_arguments();
 		EnterRule("arguments", 86);
 		TraceIn("arguments", 86);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "arguments");
@@ -9333,7 +9331,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -9359,12 +9357,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "arrayLiteral"
 	// AS3T.g:942:1: arrayLiteral : LBRACK ( elementList )? RBRACK ;
 	[GrammarRule("arrayLiteral")]
-	private TemplateParserRuleReturnScope<Template, IToken> arrayLiteral()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> arrayLiteral()
 	{
 		EnterRule_arrayLiteral();
 		EnterRule("arrayLiteral", 87);
 		TraceIn("arrayLiteral", 87);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "arrayLiteral");
@@ -9438,12 +9436,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "elementList"
 	// AS3T.g:946:1: elementList : ( COMMA | nonemptyElementList );
 	[GrammarRule("elementList")]
-	private TemplateParserRuleReturnScope<Template, IToken> elementList()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> elementList()
 	{
 		EnterRule_elementList();
 		EnterRule("elementList", 88);
 		TraceIn("elementList", 88);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "elementList");
@@ -9522,12 +9520,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "nonemptyElementList"
 	// AS3T.g:951:1: nonemptyElementList : assignmentExpression ( COMMA assignmentExpression )* ;
 	[GrammarRule("nonemptyElementList")]
-	private TemplateParserRuleReturnScope<Template, IToken> nonemptyElementList()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> nonemptyElementList()
 	{
 		EnterRule_nonemptyElementList();
 		EnterRule("nonemptyElementList", 89);
 		TraceIn("nonemptyElementList", 89);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "nonemptyElementList");
@@ -9615,12 +9613,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "element"
 	// AS3T.g:955:1: element : assignmentExpression ;
 	[GrammarRule("element")]
-	private TemplateParserRuleReturnScope<Template, IToken> element()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> element()
 	{
 		EnterRule_element();
 		EnterRule("element", 90);
 		TraceIn("element", 90);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "element");
@@ -9665,12 +9663,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "objectLiteral"
 	// AS3T.g:960:1: objectLiteral : LCURLY ( fieldList )? RCURLY ;
 	[GrammarRule("objectLiteral")]
-	private TemplateParserRuleReturnScope<Template, IToken> objectLiteral()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> objectLiteral()
 	{
 		EnterRule_objectLiteral();
 		EnterRule("objectLiteral", 91);
 		TraceIn("objectLiteral", 91);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "objectLiteral");
@@ -9744,12 +9742,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "fieldList"
 	// AS3T.g:964:1: fieldList : literalField ( COMMA ( literalField )? )* ;
 	[GrammarRule("fieldList")]
-	private TemplateParserRuleReturnScope<Template, IToken> fieldList()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> fieldList()
 	{
 		EnterRule_fieldList();
 		EnterRule("fieldList", 92);
 		TraceIn("fieldList", 92);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "fieldList");
@@ -9862,12 +9860,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "literalField"
 	// AS3T.g:968:1: literalField : fieldName COLON element ;
 	[GrammarRule("literalField")]
-	private TemplateParserRuleReturnScope<Template, IToken> literalField()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> literalField()
 	{
 		EnterRule_literalField();
 		EnterRule("literalField", 93);
 		TraceIn("literalField", 93);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "literalField");
@@ -9919,12 +9917,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "fieldName"
 	// AS3T.g:972:1: fieldName : ( ident | number );
 	[GrammarRule("fieldName")]
-	private TemplateParserRuleReturnScope<Template, IToken> fieldName()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> fieldName()
 	{
 		EnterRule_fieldName();
 		EnterRule("fieldName", 94);
 		TraceIn("fieldName", 94);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "fieldName");
@@ -10006,12 +10004,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "expression"
 	// AS3T.g:978:1: expression : assignmentExpression ;
 	[GrammarRule("expression")]
-	private TemplateParserRuleReturnScope<Template, IToken> expression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> expression()
 	{
 		EnterRule_expression();
 		EnterRule("expression", 95);
 		TraceIn("expression", 95);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "expression");
@@ -10034,7 +10032,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -10060,16 +10058,16 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "expressionList"
 	// AS3T.g:984:1: expressionList : e1= assignmentExpression ( COMMA e2= assignmentExpression )* -> assign(rhs=$e1.text);
 	[GrammarRule("expressionList")]
-	private TemplateParserRuleReturnScope<Template, IToken> expressionList()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> expressionList()
 	{
 		EnterRule_expressionList();
 		EnterRule("expressionList", 96);
 		TraceIn("expressionList", 96);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> e1 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> e2 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> e1 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> e2 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "expressionList");
 		DebugLocation(984, 1);
@@ -10152,7 +10150,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -10178,17 +10176,17 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "assignmentExpression"
 	// AS3T.g:990:1: assignmentExpression : x1= conditionalExpression ( ( assignmentOperator )=>op1= assignmentOperator x2= assignmentExpression )* -> assignexpr(lhs=$x1.textop=$op1.textrhs=$x2.text);
 	[GrammarRule("assignmentExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> assignmentExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> assignmentExpression()
 	{
 		EnterRule_assignmentExpression();
 		EnterRule("assignmentExpression", 97);
 		TraceIn("assignmentExpression", 97);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> x1 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> op1 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> x2 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> x1 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> op1 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> x2 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "assignmentExpression");
 		DebugLocation(990, 1);
@@ -10281,7 +10279,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -10307,12 +10305,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "assignmentOperator"
 	// AS3T.g:995:1: assignmentOperator : ( ASSIGN | STAR_ASSIGN | DIV_ASSIGN | MOD_ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | SL_ASSIGN | SR_ASSIGN | BSR_ASSIGN | BAND_ASSIGN | BXOR_ASSIGN | BOR_ASSIGN | LAND_ASSIGN | LOR_ASSIGN );
 	[GrammarRule("assignmentOperator")]
-	private TemplateParserRuleReturnScope<Template, IToken> assignmentOperator()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> assignmentOperator()
 	{
 		EnterRule_assignmentOperator();
 		EnterRule("assignmentOperator", 98);
 		TraceIn("assignmentOperator", 98);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "assignmentOperator");
@@ -10344,7 +10342,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -10370,12 +10368,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "conditionalExpression"
 	// AS3T.g:1014:1: conditionalExpression : ( logicalOrExpression ) ( QUESTION conditionalSubExpression )? ;
 	[GrammarRule("conditionalExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> conditionalExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> conditionalExpression()
 	{
 		EnterRule_conditionalExpression();
 		EnterRule("conditionalExpression", 99);
 		TraceIn("conditionalExpression", 99);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "conditionalExpression");
@@ -10460,12 +10458,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "conditionalSubExpression"
 	// AS3T.g:1023:1: conditionalSubExpression : assignmentExpression COLON assignmentExpression ;
 	[GrammarRule("conditionalSubExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> conditionalSubExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> conditionalSubExpression()
 	{
 		EnterRule_conditionalSubExpression();
 		EnterRule("conditionalSubExpression", 100);
 		TraceIn("conditionalSubExpression", 100);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "conditionalSubExpression");
@@ -10517,12 +10515,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "logicalOrExpression"
 	// AS3T.g:1030:1: logicalOrExpression : logicalAndExpression ( logicalOrOperator logicalAndExpression )* ;
 	[GrammarRule("logicalOrExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> logicalOrExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> logicalOrExpression()
 	{
 		EnterRule_logicalOrExpression();
 		EnterRule("logicalOrExpression", 101);
 		TraceIn("logicalOrExpression", 101);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "logicalOrExpression");
@@ -10613,12 +10611,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "logicalOrOperator"
 	// AS3T.g:1035:1: logicalOrOperator : ( LOR | 'or' );
 	[GrammarRule("logicalOrOperator")]
-	private TemplateParserRuleReturnScope<Template, IToken> logicalOrOperator()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> logicalOrOperator()
 	{
 		EnterRule_logicalOrOperator();
 		EnterRule("logicalOrOperator", 102);
 		TraceIn("logicalOrOperator", 102);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "logicalOrOperator");
@@ -10672,12 +10670,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "logicalAndExpression"
 	// AS3T.g:1040:1: logicalAndExpression : bitwiseOrExpression ( logicalAndOperator bitwiseOrExpression )* ;
 	[GrammarRule("logicalAndExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> logicalAndExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> logicalAndExpression()
 	{
 		EnterRule_logicalAndExpression();
 		EnterRule("logicalAndExpression", 103);
 		TraceIn("logicalAndExpression", 103);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "logicalAndExpression");
@@ -10768,12 +10766,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "logicalAndOperator"
 	// AS3T.g:1045:1: logicalAndOperator : ( LAND | 'and' );
 	[GrammarRule("logicalAndOperator")]
-	private TemplateParserRuleReturnScope<Template, IToken> logicalAndOperator()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> logicalAndOperator()
 	{
 		EnterRule_logicalAndOperator();
 		EnterRule("logicalAndOperator", 104);
 		TraceIn("logicalAndOperator", 104);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "logicalAndOperator");
@@ -10827,12 +10825,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "bitwiseOrExpression"
 	// AS3T.g:1050:1: bitwiseOrExpression : bitwiseXorExpression ( BOR bitwiseXorExpression )* ;
 	[GrammarRule("bitwiseOrExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> bitwiseOrExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> bitwiseOrExpression()
 	{
 		EnterRule_bitwiseOrExpression();
 		EnterRule("bitwiseOrExpression", 105);
 		TraceIn("bitwiseOrExpression", 105);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "bitwiseOrExpression");
@@ -10920,12 +10918,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "bitwiseXorExpression"
 	// AS3T.g:1056:1: bitwiseXorExpression : bitwiseAndExpression ( BXOR bitwiseAndExpression )* ;
 	[GrammarRule("bitwiseXorExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> bitwiseXorExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> bitwiseXorExpression()
 	{
 		EnterRule_bitwiseXorExpression();
 		EnterRule("bitwiseXorExpression", 106);
 		TraceIn("bitwiseXorExpression", 106);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "bitwiseXorExpression");
@@ -11013,12 +11011,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "bitwiseAndExpression"
 	// AS3T.g:1062:1: bitwiseAndExpression : equalityExpression ( BAND equalityExpression )* ;
 	[GrammarRule("bitwiseAndExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> bitwiseAndExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> bitwiseAndExpression()
 	{
 		EnterRule_bitwiseAndExpression();
 		EnterRule("bitwiseAndExpression", 107);
 		TraceIn("bitwiseAndExpression", 107);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "bitwiseAndExpression");
@@ -11106,12 +11104,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "equalityExpression"
 	// AS3T.g:1068:1: equalityExpression : relationalExpression ( equalityOperator relationalExpression )* ;
 	[GrammarRule("equalityExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> equalityExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> equalityExpression()
 	{
 		EnterRule_equalityExpression();
 		EnterRule("equalityExpression", 108);
 		TraceIn("equalityExpression", 108);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "equalityExpression");
@@ -11202,12 +11200,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "equalityOperator"
 	// AS3T.g:1073:1: equalityOperator : ( STRICT_EQUAL | STRICT_NOT_EQUAL | NOT_EQUAL | EQUAL );
 	[GrammarRule("equalityOperator")]
-	private TemplateParserRuleReturnScope<Template, IToken> equalityOperator()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> equalityOperator()
 	{
 		EnterRule_equalityOperator();
 		EnterRule("equalityOperator", 109);
 		TraceIn("equalityOperator", 109);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "equalityOperator");
@@ -11261,17 +11259,17 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "relationalExpression"
 	// AS3T.g:1078:1: relationalExpression : s1= shiftExpression ( relationalOperator s2= shiftExpression )* -> expr(e=$s1.textr=$relationalOperator.textc=$s2.text);
 	[GrammarRule("relationalExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> relationalExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> relationalExpression()
 	{
 		EnterRule_relationalExpression();
 		EnterRule("relationalExpression", 110);
 		TraceIn("relationalExpression", 110);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> s1 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> s2 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> relationalOperator24 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> s1 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> s2 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> relationalOperator24 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "relationalExpression");
 		DebugLocation(1078, 1);
@@ -11379,12 +11377,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "relationalOperator"
 	// AS3T.g:1082:1: relationalOperator : ( LT -> relationalOperator(op=\"<\")| GT -> relationalOperator(op=\">\")| LE -> relationalOperator(op=\"<=\")| GE -> relationalOperator(op=\">=\")| IS -> rtti(| AS -> cast(| 'instanceof' );
 	[GrammarRule("relationalOperator")]
-	private TemplateParserRuleReturnScope<Template, IToken> relationalOperator()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> relationalOperator()
 	{
 		EnterRule_relationalOperator();
 		EnterRule("relationalOperator", 111);
 		TraceIn("relationalOperator", 111);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "relationalOperator");
@@ -11616,7 +11614,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -11642,12 +11640,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "shiftExpression"
 	// AS3T.g:1094:1: shiftExpression : additiveExpression ( shiftOperator additiveExpression )* ;
 	[GrammarRule("shiftExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> shiftExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> shiftExpression()
 	{
 		EnterRule_shiftExpression();
 		EnterRule("shiftExpression", 112);
 		TraceIn("shiftExpression", 112);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "shiftExpression");
@@ -11716,7 +11714,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -11742,12 +11740,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "shiftOperator"
 	// AS3T.g:1100:1: shiftOperator : ( SL | SR | BSR );
 	[GrammarRule("shiftOperator")]
-	private TemplateParserRuleReturnScope<Template, IToken> shiftOperator()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> shiftOperator()
 	{
 		EnterRule_shiftOperator();
 		EnterRule("shiftOperator", 113);
 		TraceIn("shiftOperator", 113);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "shiftOperator");
@@ -11779,7 +11777,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -11805,12 +11803,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "additiveExpression"
 	// AS3T.g:1106:1: additiveExpression : multiplicativeExpression ( additiveOperator multiplicativeExpression )* ;
 	[GrammarRule("additiveExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> additiveExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> additiveExpression()
 	{
 		EnterRule_additiveExpression();
 		EnterRule("additiveExpression", 114);
 		TraceIn("additiveExpression", 114);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "additiveExpression");
@@ -11879,7 +11877,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -11905,12 +11903,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "additiveOperator"
 	// AS3T.g:1111:1: additiveOperator : ( PLUS | MINUS );
 	[GrammarRule("additiveOperator")]
-	private TemplateParserRuleReturnScope<Template, IToken> additiveOperator()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> additiveOperator()
 	{
 		EnterRule_additiveOperator();
 		EnterRule("additiveOperator", 115);
 		TraceIn("additiveOperator", 115);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "additiveOperator");
@@ -11942,7 +11940,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -11968,12 +11966,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "multiplicativeExpression"
 	// AS3T.g:1117:1: multiplicativeExpression : unaryExpression ( multiplicativeOperator unaryExpression )* ;
 	[GrammarRule("multiplicativeExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> multiplicativeExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> multiplicativeExpression()
 	{
 		EnterRule_multiplicativeExpression();
 		EnterRule("multiplicativeExpression", 116);
 		TraceIn("multiplicativeExpression", 116);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "multiplicativeExpression");
@@ -12042,7 +12040,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -12068,12 +12066,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "multiplicativeOperator"
 	// AS3T.g:1125:1: multiplicativeOperator : ( STAR | DIV | MOD );
 	[GrammarRule("multiplicativeOperator")]
-	private TemplateParserRuleReturnScope<Template, IToken> multiplicativeOperator()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> multiplicativeOperator()
 	{
 		EnterRule_multiplicativeOperator();
 		EnterRule("multiplicativeOperator", 117);
 		TraceIn("multiplicativeOperator", 117);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "multiplicativeOperator");
@@ -12105,7 +12103,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -12131,12 +12129,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "unaryExpression"
 	// AS3T.g:1131:1: unaryExpression : (inc= INC unaryExpression |dec= DEC unaryExpression | MINUS unaryExpression | PLUS unaryExpression | unaryExpressionNotPlusMinus );
 	[GrammarRule("unaryExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> unaryExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> unaryExpression()
 	{
 		EnterRule_unaryExpression();
 		EnterRule("unaryExpression", 118);
 		TraceIn("unaryExpression", 118);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		IToken inc = default(IToken);
@@ -12299,7 +12297,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -12325,12 +12323,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "unaryExpressionNotPlusMinus"
 	// AS3T.g:1140:1: unaryExpressionNotPlusMinus : ( 'delete' postfixExpression | 'void' unaryExpression | 'typeof' unaryExpression | LNOT unaryExpression | BNOT unaryExpression | postfixExpression );
 	[GrammarRule("unaryExpressionNotPlusMinus")]
-	private TemplateParserRuleReturnScope<Template, IToken> unaryExpressionNotPlusMinus()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> unaryExpressionNotPlusMinus()
 	{
 		EnterRule_unaryExpressionNotPlusMinus();
 		EnterRule("unaryExpressionNotPlusMinus", 119);
 		TraceIn("unaryExpressionNotPlusMinus", 119);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "unaryExpressionNotPlusMinus");
@@ -12504,7 +12502,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -12530,12 +12528,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "postfixExpression"
 	// AS3T.g:1155:1: postfixExpression : primaryExpression ( propOrIdent | DOT e4xExpression | E4X_DESC e4xExpression | LBRACK expression RBRACK | arguments )* ( INC | DEC )? ;
 	[GrammarRule("postfixExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> postfixExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> postfixExpression()
 	{
 		EnterRule_postfixExpression();
 		EnterRule("postfixExpression", 120);
 		TraceIn("postfixExpression", 120);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "postfixExpression");
@@ -12743,12 +12741,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "e4xExpression"
 	// AS3T.g:1182:1: e4xExpression : ( STAR | e4xAttributeIdentifier | e4xFilterPredicate );
 	[GrammarRule("e4xExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> e4xExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> e4xExpression()
 	{
 		EnterRule_e4xExpression();
 		EnterRule("e4xExpression", 121);
 		TraceIn("e4xExpression", 121);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "e4xExpression");
@@ -12848,12 +12846,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "e4xAttributeIdentifier"
 	// AS3T.g:1188:1: e4xAttributeIdentifier : E4X_ATTRI ( qualifiedIdent | STAR | LBRACK expression RBRACK ) ;
 	[GrammarRule("e4xAttributeIdentifier")]
-	private TemplateParserRuleReturnScope<Template, IToken> e4xAttributeIdentifier()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> e4xAttributeIdentifier()
 	{
 		EnterRule_e4xAttributeIdentifier();
 		EnterRule("e4xAttributeIdentifier", 122);
 		TraceIn("e4xAttributeIdentifier", 122);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "e4xAttributeIdentifier");
@@ -12984,12 +12982,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "e4xFilterPredicate"
 	// AS3T.g:1196:1: e4xFilterPredicate : LPAREN expression RPAREN ;
 	[GrammarRule("e4xFilterPredicate")]
-	private TemplateParserRuleReturnScope<Template, IToken> e4xFilterPredicate()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> e4xFilterPredicate()
 	{
 		EnterRule_e4xFilterPredicate();
 		EnterRule("e4xFilterPredicate", 123);
 		TraceIn("e4xFilterPredicate", 123);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "e4xFilterPredicate");
@@ -13038,12 +13036,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "primaryExpression"
 	// AS3T.g:1202:1: primaryExpression : ( 'undefined' | constant | arrayLiteral | objectLiteral | functionDefinition | newExpression | encapsulatedExpression | e4xAttributeIdentifier | qualifiedIdent );
 	[GrammarRule("primaryExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> primaryExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> primaryExpression()
 	{
 		EnterRule_primaryExpression();
 		EnterRule("primaryExpression", 124);
 		TraceIn("primaryExpression", 124);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "primaryExpression");
@@ -13247,7 +13245,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -13273,15 +13271,15 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "propOrIdent"
 	// AS3T.g:1216:1: propOrIdent : DOT qualifiedIdent -> indirect(name=$qualifiedIdent.text);
 	[GrammarRule("propOrIdent")]
-	private TemplateParserRuleReturnScope<Template, IToken> propOrIdent()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> propOrIdent()
 	{
 		EnterRule_propOrIdent();
 		EnterRule("propOrIdent", 125);
 		TraceIn("propOrIdent", 125);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> qualifiedIdent25 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> qualifiedIdent25 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "propOrIdent");
 		DebugLocation(1216, 1);
@@ -13345,16 +13343,16 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "constant"
 	// AS3T.g:1227:1: constant : ( xmlLiteral -> xml(x=$xmlLiteral.text)| regexpLiteral -> regex(x=$regexpLiteral.text)| number | stringLiteral | TRUE | FALSE | NULL -> null();
 	[GrammarRule("constant")]
-	private TemplateParserRuleReturnScope<Template, IToken> constant()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> constant()
 	{
 		EnterRule_constant();
 		EnterRule("constant", 126);
 		TraceIn("constant", 126);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
-		TemplateParserRuleReturnScope<Template, IToken> xmlLiteral26 = default(TemplateParserRuleReturnScope<Template, IToken>);
-		TemplateParserRuleReturnScope<Template, IToken> regexpLiteral27 = default(TemplateParserRuleReturnScope<Template, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> xmlLiteral26 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
+		TemplateParserRuleReturnScope<StringTemplate, IToken> regexpLiteral27 = default(TemplateParserRuleReturnScope<StringTemplate, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "constant");
 		DebugLocation(1227, 1);
@@ -13571,12 +13569,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "stringLiteral"
 	// AS3T.g:1237:1: stringLiteral : ( stringLiteralDouble | stringLiteralSingle );
 	[GrammarRule("stringLiteral")]
-	private TemplateParserRuleReturnScope<Template, IToken> stringLiteral()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> stringLiteral()
 	{
 		EnterRule_stringLiteral();
 		EnterRule("stringLiteral", 127);
 		TraceIn("stringLiteral", 127);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "stringLiteral");
@@ -13658,12 +13656,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "stringLiteralDouble"
 	// AS3T.g:1241:1: stringLiteralDouble : STRING_LITERAL_DOUBLE ;
 	[GrammarRule("stringLiteralDouble")]
-	private TemplateParserRuleReturnScope<Template, IToken> stringLiteralDouble()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> stringLiteralDouble()
 	{
 		EnterRule_stringLiteralDouble();
 		EnterRule("stringLiteralDouble", 128);
 		TraceIn("stringLiteralDouble", 128);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "stringLiteralDouble");
@@ -13705,12 +13703,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "stringLiteralSingle"
 	// AS3T.g:1245:1: stringLiteralSingle : STRING_LITERAL_SINGLE ;
 	[GrammarRule("stringLiteralSingle")]
-	private TemplateParserRuleReturnScope<Template, IToken> stringLiteralSingle()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> stringLiteralSingle()
 	{
 		EnterRule_stringLiteralSingle();
 		EnterRule("stringLiteralSingle", 129);
 		TraceIn("stringLiteralSingle", 129);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "stringLiteralSingle");
@@ -13752,12 +13750,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "number"
 	// AS3T.g:1250:1: number : ( HEX_LITERAL | DECIMAL_LITERAL | OCTAL_LITERAL | FLOAT_LITERAL );
 	[GrammarRule("number")]
-	private TemplateParserRuleReturnScope<Template, IToken> number()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> number()
 	{
 		EnterRule_number();
 		EnterRule("number", 130);
 		TraceIn("number", 130);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "number");
@@ -13811,12 +13809,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "xmlLiteral"
 	// AS3T.g:1257:1: xmlLiteral : XML_LITERAL ;
 	[GrammarRule("xmlLiteral")]
-	private TemplateParserRuleReturnScope<Template, IToken> xmlLiteral()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> xmlLiteral()
 	{
 		EnterRule_xmlLiteral();
 		EnterRule("xmlLiteral", 131);
 		TraceIn("xmlLiteral", 131);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "xmlLiteral");
@@ -13836,7 +13834,7 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 
 			if (state.backtracking == 0)
 			{
-				retval.Template = new Template(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
+				retval.Template = new StringTemplate(TemplateGroup,input.ToString(retval.Start,input.LT(-1)));
 			}
 		}
 		catch (RecognitionException re)
@@ -13862,12 +13860,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "regexpLiteral"
 	// AS3T.g:1263:1: regexpLiteral : REGEX_LITERAL ;
 	[GrammarRule("regexpLiteral")]
-	private TemplateParserRuleReturnScope<Template, IToken> regexpLiteral()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> regexpLiteral()
 	{
 		EnterRule_regexpLiteral();
 		EnterRule("regexpLiteral", 132);
 		TraceIn("regexpLiteral", 132);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "regexpLiteral");
@@ -13909,12 +13907,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "newExpression"
 	// AS3T.g:1267:1: newExpression : NEW fullNewSubexpression arguments ;
 	[GrammarRule("newExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> newExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> newExpression()
 	{
 		EnterRule_newExpression();
 		EnterRule("newExpression", 133);
 		TraceIn("newExpression", 133);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "newExpression");
@@ -13966,12 +13964,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "fullNewSubexpression"
 	// AS3T.g:1271:1: fullNewSubexpression : ( primaryExpression ) (d= DOT qualifiedIdent | brackets )* ;
 	[GrammarRule("fullNewSubexpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> fullNewSubexpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> fullNewSubexpression()
 	{
 		EnterRule_fullNewSubexpression();
 		EnterRule("fullNewSubexpression", 134);
 		TraceIn("fullNewSubexpression", 134);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		IToken d = default(IToken);
@@ -14085,12 +14083,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "propertyOperator"
 	// AS3T.g:1279:1: propertyOperator : ( DOT qualifiedIdent | brackets );
 	[GrammarRule("propertyOperator")]
-	private TemplateParserRuleReturnScope<Template, IToken> propertyOperator()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> propertyOperator()
 	{
 		EnterRule_propertyOperator();
 		EnterRule("propertyOperator", 135);
 		TraceIn("propertyOperator", 135);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "propertyOperator");
@@ -14174,12 +14172,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "brackets"
 	// AS3T.g:1284:1: brackets : LBRACK expressionList RBRACK ;
 	[GrammarRule("brackets")]
-	private TemplateParserRuleReturnScope<Template, IToken> brackets()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> brackets()
 	{
 		EnterRule_brackets();
 		EnterRule("brackets", 136);
 		TraceIn("brackets", 136);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "brackets");
@@ -14228,12 +14226,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "encapsulatedExpression"
 	// AS3T.g:1288:1: encapsulatedExpression : LPAREN assignmentExpression RPAREN ;
 	[GrammarRule("encapsulatedExpression")]
-	private TemplateParserRuleReturnScope<Template, IToken> encapsulatedExpression()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> encapsulatedExpression()
 	{
 		EnterRule_encapsulatedExpression();
 		EnterRule("encapsulatedExpression", 137);
 		TraceIn("encapsulatedExpression", 137);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "encapsulatedExpression");
@@ -14282,12 +14280,12 @@ public partial class AS3TParser : Antlr.Runtime.Parser
 	// $ANTLR start "functionDefinition"
 	// AS3T.g:1296:1: functionDefinition : FUNCTION parameterDeclarationList ( typeExpression )? block ;
 	[GrammarRule("functionDefinition")]
-	private TemplateParserRuleReturnScope<Template, IToken> functionDefinition()
+	private TemplateParserRuleReturnScope<StringTemplate, IToken> functionDefinition()
 	{
 		EnterRule_functionDefinition();
 		EnterRule("functionDefinition", 138);
 		TraceIn("functionDefinition", 138);
-		TemplateParserRuleReturnScope<Template, IToken> retval = new TemplateParserRuleReturnScope<Template, IToken>();
+		TemplateParserRuleReturnScope<StringTemplate, IToken> retval = new TemplateParserRuleReturnScope<StringTemplate, IToken>();
 		retval.Start = (IToken)input.LT(1);
 
 		try { DebugEnterRule(GrammarFileName, "functionDefinition");

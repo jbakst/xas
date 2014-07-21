@@ -1,1 +1,3 @@
 *.csprojResolveAssemblyReference.cache
+/xas.exe
+/xas.pdb

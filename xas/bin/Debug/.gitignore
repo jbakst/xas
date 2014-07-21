@@ -1,0 +1,8 @@
+/Antlr3.Runtime.dll
+/Antlr3.Runtime.pdb
+/Antlr3.StringTemplate.dll
+/Antlr3.StringTemplate.pdb
+*.xml
+/xas.exe
+/xas.pdb
+*.dll
