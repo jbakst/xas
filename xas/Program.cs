@@ -18,7 +18,7 @@ namespace com.redwine.xas
 {
     class Program
     {
-        private static readonly HeadingInfo _headingInfo = new HeadingInfo("xas ActionScript Translator Version", "0.9");
+        private static readonly HeadingInfo _headingInfo = new HeadingInfo("xas ActionScript Translator Version", "0.9.1");
 
         private sealed class Options
         {
@@ -60,7 +60,8 @@ namespace com.redwine.xas
             {
                 var help = new HelpText(Program._headingInfo);
                 help.AdditionalNewLineAfterOption = true;
-                help.Copyright = new CopyrightInfo("Jeff Bakst. All rights reserved.", 2011);
+                int[] years = {2011,2014};
+                help.Copyright = new CopyrightInfo("Jeff Bakst. All rights reserved.", years);
                 this.HandleParsingErrorsInHelp(help);
                 help.AddPreOptionsLine("Usage: xas -nSomeFile.as -o .");
                 help.AddPreOptionsLine(string.Format("       xas -R -o ."));
