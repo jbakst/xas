@@ -6,3 +6,4 @@
 /xas.exe
 /xas.pdb
 *.dll
+*.vshost.exe.manifest
